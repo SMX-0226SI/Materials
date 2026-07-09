@@ -8,11 +8,11 @@ En aquest repositori es troben els materials teòrics (apunts) corresponents als
 
 ## Estructura del repositori
 
-[NF1-Seguretat passiva](NF1-SeguretatPassiva/README.md)  
-[NF2-Emmagatzematge i còpies de seguretat](NF2-Emmagatzematge/README.md)  
-[NF3-Seguretat Activa i protecció contra programari maliciós](NF3-SeguretatActiva/README.md)  
-[NF4-Legislació i normativa sobre seguretat i protecció de dades](NF4-Legislacio/README.md)  
-[NF5-Seguretat en xarxa](NF5-SeguretatXarxa/README.md)  
+[NF1-Seguretat passiva](NF1/README.md)  
+[NF2-Emmagatzematge i còpies de seguretat](NF2/README.md)  
+[NF3-Seguretat Activa i protecció contra programari maliciós](NF3/README.md)  
+[NF4-Legislació i normativa sobre seguretat i protecció de dades](NF4/README.md)  
+[NF5-Seguretat en xarxa](NF5/README.md)  
 
 ## Llicència
 
