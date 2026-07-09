@@ -1,0 +1,37 @@
+# 0226 Seguretat Informàtica
+
+Materials didàctics per al mòdul Seguretat Informàtica del cicle formatiu de grau mitjà de Sistemes Microinformàtics i Xarxes (SMX).
+
+## Descripció
+
+En aquest repositori es troben els materials teòrics (apunts) corresponents als diferents nuclis formatius del mòdul.
+
+## Estructura del repositori
+
+[NF1-Seguretat física i passiva](NF1-SeguretatPassiva/README.md)  
+[NF2-Emmagatzematge i còpies de seguretat](NF2-Emmagatzematge/README.md)  
+[NF3-Seguretat Activa i protecció contra programari maliciós](NF3-SeguretatActiva/README.md)  
+[NF4-Legislació i normativa sobre seguretat i protecció de dades](NF4-Legislacio/README.md)  
+[NF5-Seguretat en xarxa](NF5-SeguretatXarxa/README.md)  
+
+## Llicència
+
+Aquest repositori està subjecte a la llicència [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+Això significa que pots:
+
+- Compartir — copiar i redistribuir el material en qualsevol mitjà o format.
+- Adaptar — remesclar, transformar i construir a partir del material per a qualsevol finalitat, fins i tot comercial.
+
+Amb les condicions següents:
+
+- Reconeixement — Has de donar el crèdit adequat, proporcionar un enllaç a la llicència i indicar si s'han fet canvis.
+- CompartirIgual — Si remescles, transformes o construeixes a partir del material, has de distribuir les teves contribucions sota la mateixa llicència que l'original.
+
+## Contribucions
+
+Les contribucions són benvingudes. Si detectes errors o vols millorar algun contingut, obre un issue o fes un pull request.
+
+---
+
+Elaborat per al cicle SMX — Escola Pia de Mataró — 2026
