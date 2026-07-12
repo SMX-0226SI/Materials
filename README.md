@@ -34,4 +34,6 @@ Les contribucions són benvingudes. Si detectes errors o vols millorar algun con
 
 ---
 
-Elaborat per al cicle SMX — Escola Pia de Mataró — 2026
+Elaborat per al cicle SMX — Escola Pia de Mataró
+
+Carlos Alonso Martínez (2026)
