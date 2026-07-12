@@ -2,7 +2,7 @@
 
 RA1. Aplica mesures de seguretat passiva en sistemes informàtics descrivint característiques d'entorns i relacionant-les amb les seves necessitats.
 
-Durada prevista: 15 hores
+Durada prevista: 18 hores
 
 ---
 
@@ -12,7 +12,7 @@ En aquest primer bloc començarem fent una petita introducció a la seguretat in
 
 ## Taula de continguts
 
-- [AA1. Conceptes bàsics de seguretat informàtica](AA1-ConceptesSI.md)
+- [AA1. Conceptes bàsics de seguretat informàtica](./AA1/AA1IntroSeguretatInform.html)
 - [AA2. Seguretat a l'entorn físic](./AA2-SeguretatFisica.md)
 - [AA3. Seguretat lògica](./AA3-SeguretatLogica.md)
 

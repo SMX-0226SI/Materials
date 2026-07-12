@@ -108,5 +108,7 @@ Avantatges:
 | **Seguretat física** | Guàrdies, bloqueig, panys, SAI |
 | **Directives, procediments i conscienciació** | Programes d'aprenentatge per a usuaris |
 
+---
+
 | [⬆️](./README.md)Tornar a inici NF1 | |[➡️](./AA2-SeguretatFisica.md)AA2 Seguretat Física |
 | :--- | :--- | :--- |
