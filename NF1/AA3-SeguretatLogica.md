@@ -149,21 +149,10 @@ Cada línia correspon a un usuari, el password, data darrer canvi, els llindars 
 sai:$6$YTJ7JKnfsB4esnbS$5XvmYk2.GXVWhDo2TYGN2hCitD/wU9Kov.uZD8xsnleuf1r0ARX3qodIKiDsdoQA444b8IMPMOnUWDmVJVkeg1:19446:0:99999:7:::
 ```
 
-Els camps separats per `:` i són els següents:
+Els camps venen separats per `:` i bàsicament són el nom de l'usuari, el hash de la contrasenya i els llindars de canvi i inactivitat. Si us fixeu, el camp de la contrasenya apareix diverses vegades el símbol del `$`, això és ens identifica tres parts dins el bloc de la contrasenya:
 
-- **uid**: nom d’usuari
-- **password**: hash de la contrasenya
-- **lastchanged**: data darrer canvi de contrasenya (nombre de dies des de l’1 de gener de 1970)
-- **min**: nombre mínim de dies entre canvis de contrasenya
-- **max**: nombre màxim de dies entre canvis de contrasenya
-- **warn**: nombre de dies abans de la caducitat de la contrasenya que l’usuari rebrà un avís
-- **inactive**: nombre de dies després de la caducitat de la contrasenya que el compte es desactiva
-- **expire**: data d’expiració del compte (nombre de dies des de l’1 de gener de 1970)
-
-Si us fixeu, el camp de la contrasenya apareix diverses vegades el símbol del `$`, això és ens identifica tres parts dins el bloc de la contrasenya:
-
-- El primer bloc ens indica l’algoritme de hash que s’ha usat per generar el hash de la contrasenya, en aquest cas `$6$` indica que s’ha usat SHA-512, però pode ser `$1$` per MD5, `$2a$` per Blowfish, `$5$` per SHA-256, etc.
-- El segon bloc és la sal, que és un valor aleatori que s’afegeix a la contrasenya abans de fer el hash, això fa que dues contrasenyes iguals no generin el mateix hash.
+- El primer bloc ens indica l’algoritme que s’ha usat per generar el hash de la contrasenya, en aquest cas `$6$` indica que s’ha usat SHA-512, però pode ser `$1$` per MD5, `$2a$` per Blowfish, `$5$` per SHA-256, etc.
+- El segon bloc és la sal, que és un valor aleatori que s’afegeix a la contrasenya abans de fer el hash.
 - El tercer bloc és el hash de la contrasenya amb la sal. És a dir, s'agafa la contrasenya en text pla, se li posa davant el text de la salt i aleshores s'aplica l'algoritme de hash. D'aquesta manera, encara que dues persones tinguin la mateixa contrasenya, com que la salt és diferent, el hash serà diferent.
 
 ### Atacs a contrasenyes
