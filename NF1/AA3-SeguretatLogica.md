@@ -126,7 +126,7 @@ Permet evitar que l’usuari vagi repetint periòdicament la mateixa contrasenya
 
 Usar gestors de contrasenyes, que permeten que l'usuari se n'oblidi de recordar-les totes, evita la reutilització, ja que el propi gestor genera contrasenyes fortes i diferents per a cada servei. Existeixen molts gestors de contrasenyes, alguns gratuïts i d'altres de pagament, alguns funcionen en local i d'altres en el núvol. Alguns exemples són: LastPass, 1Password, Bitwarden, KeePass, etc.
 
-## Emmagatzematge de contrasenyes
+### Emmagatzematge de contrasenyes
 
 Els sistemes informàtics emmagatzemen les contrasenyes en arxius de configuració, bases de dades, etc. Si un atacant aconsegueix accedir a aquests arxius, pot obtenir les contrasenyes sense que cap de les polítiques o bones pràctiques que realitzin els usuaris serveixin de res. Per això, és molt important que les contrasenyes s'emmagatzemin de forma segura.
 
@@ -134,13 +134,13 @@ Com guardar les contrasenyes de forma segura? Doncs mai en text pla (és a dir, 
 
 La codificació per hash genera una cadena de longitud fixa (no depèn de la mida de la contrasenya) i en teoria dues contrasenyes diferents no poden donar el mateix hash.
 
-### Gestió de contrasenyes a sistemes Windows
+#### Gestió de contrasenyes a sistemes Windows
 
 Des de Windows XP s’utilitza el sistema NTLM: les contrasenyes es codifiquen mitjançant un algoritme de hash i es guarden a un arxiu SAM. Aquest arxiu ve protegit amb un clau que s’emmagatzema al sistema de registres. La versió actual és NTLMv2, que és més segura que la versió anterior. S'usava tant en entorns locals com en entorns de domini, on les contrasenyes es guarden a un controlador de domini, però actualment Microsoft està deixant de banda NTLM en favor del protocol Kerberos per a l’autenticació dels usuaris, tant en entorns locals com en entorns de domini [enlllaç](https://hipertextual.com/seguridad/microsoft-desactiva-ntlm-windows-kerberos/) a la notícia.
 
 Eines com [OrphCrack](https://www.ophcrack.org/) permeten trencar contrasenyes de Windows a partir dels arxius SAM, tot i que hi ha diversos mètodes per protegir-nos d'aquest atac, com per exemple el xifrat de la unitat del sistema amb BitLocker, d'aquesta manera encara que arrenquin amb un LiveCD, no podran accedir a l'arxiu SAM.
 
-### Gestió de contrasenyes a sistemes Linux
+#### Gestió de contrasenyes a sistemes Linux
 
 A Linux s’usa un mètode similar, el hash de les contrasenyes es guarda a l’arxiu `/etc/shadow`. A l'arxiu shadow només té accés root.
 Cada línia correspon a un usuari, el password, data darrer canvi, els llindars de canvi i inactivitat.
@@ -185,9 +185,32 @@ Per descobrir la contrasenya cal anar provant fins que es troba:
 - Diccionari: s’usen diccionaris de possibles contrasenyes (més eficient), es basa en la idea que els humans som dolents creant contrasenyes i tendim a usar paraules reals, noms propis, etc. Existeixen diccionaris de contrasenyes que es poden descarregar d’Internet, com per exemple el [RockYou](https://weakpass.com/wordlists/rockyou.txt) que conté milions de contrasenyes reals que han estat filtrades d’Internet. També es poden crear diccionaris a partir de llistes de noms propis, paraules del diccionari, etc.
 - Rainbow Tables: taules calculades de hash i comparacions iteratives per reduir la mida de la taula inicial.
 
-## Vida més enllà de les contrasenyes
+### Vida més enllà de les contrasenyes
 
+L'experiència demostra que la gran majoria dels incidents de seguretat tenen èxit perquè els usuaris continuen utilitzant claus poc segures o reutilitzades a diferents serveis i que sovint són enganyats per proporcionar les seves credencials. Per tant, la indústria de la ciberseguretat ja ha assumit que l'ésser humà és la baula més feble de la cadena i, per això, la proposta és la transició cap al model passwordless (sense contrasenyes): eliminar-les per complet del mapa i substituir-les per mecanismes digitals inalterables.
 
+La solució són les [passkeys](https://www.passkeys.com/es/que-es-passkeys), basades en l'estàndard global FIDO2, aquesta tecnologia substitueix la teva clau de text per un parell de claus criptogràfiques: una de pública, que s'emmagatzema al servidor web, i una de privada, que es queda guardada de forma segura dins del xip de seguretat del teu propi mòbil o ordinador (TPM). Per iniciar sessió, només has de desbloquejar el teu dispositiu amb el que ja fas servir cada day: la teva empremta dactilar, el reconeixement facial (FaceID/TouchID) o el PIN local. D'aquesta manera, la clau privada mai surt del teu dispositiu ni viatja per la xarxa.
+
+Per a entorns corporatius o perfils crítics on necessitem un nivell de blindatge superior, fem servir dispositius físics com les [YubiKeys](https://es.wikipedia.org/wiki/YubiKey) (claus de seguretat de maquinari). Són petits dispositius USB o NFC que l'usuari porta a sobre, com si fossin les claus de casa. El servidor no et demanarà cap codi; simplement exigirà que connectis la clau física a l'equip i en toquis el sensor integrat per demostrar la teva presència. L'avantatge és radical: encara que un pirata informàtic aconseguís interceptar el teu nom d'usuari i controlés el teu ordinador de forma remota, seria completament incapaç d'accedir al compte perquè no disposa físicament del dispositiu.
+
+![YubiKey](./media/yubikey.jpg)
+
+## Autorització: permisos i privilegis
+
+Un cop l'usuari ja ha estat autenticat, el següent pas és determinar a què pot accedir i a què no (autorització). Això es fa mitjançant permisos i privilegis.
+
+- **Permís**: determina què pot fer un usuari respecte un objecte (carpeta, fitxer) com llegir, escriure, esborrar, etc.
+- **Dret o privilegi**: indica quines accions pot fer l’usuari respecte el sistema. Per exemple, un usuari amb privilegis d'administrador a un sistema Linux (sudoer) pot instal·lar programes amb la comanda `sudo apt install programa`, mentre que un usuari sense privilegis no podrà fer-ho.
+
+Aquest tema es treballa amb molt més detall als mòduls de sistemes operatius (monolloc i en xarxa), però ara veurem encara que sigui de forma superficial com es poden gestionar els permisos als sistemes i aplicacions informàtiques.
+
+### Models de control d'accés
+
+- **DAC** (Discretionary Access Control): el propietari de l’objecte és qui decideix a qui li dóna accés. Exemple, un usuari crea un fitxer i decideix a qui li dóna permisos d’accés. És el model típic que usen els sistemes operatius com Windows, Linux, macOS, etc.
+
+- **MAC** (Mandatory Access Control): el sistema decideix a qui li dóna accés. És un model més restrictiu pot actuar sobre les aplicacions, és a dir, limitant l'accés a les aplicacions que poden accedir a un recurs, cpm per exemple AppArmor a Linux o sobre usuaris definint nivells confidencialitat i d'acreditació, de manera que si un un usuari crea un document classificat com "top secret", l'accés queda restringit únicament als usuaris amb acreditació.
+
+- **RBAC** (Role-Based Access Control): el sistema decideix a qui li dóna accés segons el rol que té l’usuari. Exemple, en un hospital, un metge té accés a la història clínica dels pacients però no les nòmines del personal, però un administratiu no. En aquest cas, el metge té un rol que li permet accedir a la informació dels pacients, mentre que l’administratiu té un rol que li permet accedir a la informació administrativa. És el model que, per exemple, usa el sistema de directori actiu de Microsoft.
 
 | [⬆️](./README.md)Tornar a inici NF1 | [⬅️](./AA2-SeguretatFisica.md)AA2 Seguretat Física | [➡️](./../README.md)Inici apunts |
 | :--- | :--- | :--- |

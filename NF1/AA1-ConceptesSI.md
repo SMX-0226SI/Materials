@@ -66,12 +66,6 @@ Segons els recursos a protegir tenim:
 - **Seguretat física**: Consisteix a protegir les dades i els sistemes informàtics davant d’amenaces físiques, com ara robatoris, incendis, inundacions, etc.
 - **Seguretat lògica**: Mesures que asseguren programes i dades usant barreres digitals, com ara tallafocs, antivirus, sistemes de detecció d’intrusions, etc.
 
-Segons quan actuen:
-
-- **Seguretat passiva**: Mesures que una vegada produït l'atac, minimitzen els efectes i recuperen l'estat anterior. Relacionat amb la resiliència (capacitat del sistema de recuperar-se després d'un desastre).
-
-- **Seguretat activa**: Mesures per detectar amenaces i evitar el problema, abans que es produeixi.
-
 ### Exemples d'amenaces a la seguretat física
 
 - Desastres naturals
