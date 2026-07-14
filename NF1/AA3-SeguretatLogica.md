@@ -182,24 +182,42 @@ La solució són les [passkeys](https://www.passkeys.com/es/que-es-passkeys), ba
 
 Per a entorns corporatius o perfils crítics on necessitem un nivell de blindatge superior, fem servir dispositius físics com les [YubiKeys](https://es.wikipedia.org/wiki/YubiKey) (claus de seguretat de maquinari). Són petits dispositius USB o NFC que l'usuari porta a sobre, com si fossin les claus de casa. El servidor no et demanarà cap codi; simplement exigirà que connectis la clau física a l'equip i en toquis el sensor integrat per demostrar la teva presència. L'avantatge és radical: encara que un pirata informàtic aconseguís interceptar el teu nom d'usuari i controlés el teu ordinador de forma remota, seria completament incapaç d'accedir al compte perquè no disposa físicament del dispositiu.
 
-![YubiKey](./media/yubikey.jpg)
+Existeixen d'altres solucions basades en FIDO2 com les [claus de seguretat de Google](https://store.google.com/product/titan_security_key) que funcionen amb el mateix principi, però amb un disseny diferent i més orientats als serveis de Google.
+
+| ![YubiKey](./media/yubikey.jpg) | ![Google Titan Security Key](./media/google_titan.jpg) |
+|---------------------------------|--------------------------------------------------------|
+| YubiKey                         | Google Titan Security Key                              |
 
 ## Autorització: permisos i privilegis
 
 Un cop l'usuari ja ha estat autenticat, el següent pas és determinar a què pot accedir i a què no (autorització). Això es fa mitjançant permisos i privilegis.
 
-- **Permís**: determina què pot fer un usuari respecte un objecte (carpeta, fitxer) com llegir, escriure, esborrar, etc.
-- **Dret o privilegi**: indica quines accions pot fer l’usuari respecte el sistema. Per exemple, un usuari amb privilegis d'administrador a un sistema Linux (sudoer) pot instal·lar programes amb la comanda `sudo apt install programa`, mentre que un usuari sense privilegis no podrà fer-ho.
+Aquest tema es treballa amb molt més detall als mòduls de sistemes operatius (monolloc i en xarxa), però ara veurem encara que sigui de forma superficial com es poden gestionar els **permisos** als sistemes i aplicacions informàtiques.
 
-Aquest tema es treballa amb molt més detall als mòduls de sistemes operatius (monolloc i en xarxa), però ara veurem encara que sigui de forma superficial com es poden gestionar els permisos als sistemes i aplicacions informàtiques.
+### Permisos
 
-### Models de control d'accés
+Els permisos són regles d'accés directament associades a objectes o recursos concrets del sistema, com ara fitxers, carpetes, impressores, bases de dades o claus del registre del sistema operatiu. Aquestes regles s'estructuren generalment mitjançant regles o llistes d'accés (com les ACL o el model UGO dels sistemes /*nix), les quals determinen quin tipus d'interacció (lectura, escriptura, modificació, execució o control total) té permesa un usuari o grup sobre l'objecte protegit en el sistema de fitxers.
+
+Es poden definir tres models de control d'accés, que no tenen perquè ser excloents entre si, sinó que poden coexistir en un mateix sistema:
 
 - **DAC** (Discretionary Access Control): el propietari de l’objecte és qui decideix a qui li dóna accés. Exemple, un usuari crea un fitxer i decideix a qui li dóna permisos d’accés. És el model típic que usen els sistemes operatius com Windows, Linux, macOS, etc.
 
 - **MAC** (Mandatory Access Control): el sistema decideix a qui li dóna accés. És un model més restrictiu pot actuar sobre les aplicacions, és a dir, limitant l'accés a les aplicacions que poden accedir a un recurs, cpm per exemple AppArmor a Linux o sobre usuaris definint nivells confidencialitat i d'acreditació, de manera que si un un usuari crea un document classificat com "top secret", l'accés queda restringit únicament als usuaris amb acreditació.
 
 - **RBAC** (Role-Based Access Control): el sistema decideix a qui li dóna accés segons el rol que té l’usuari. Exemple, en un hospital, un metge té accés a la història clínica dels pacients però no les nòmines del personal, però un administratiu no. En aquest cas, el metge té un rol que li permet accedir a la informació dels pacients, mentre que l’administratiu té un rol que li permet accedir a la informació administrativa. És el model que, per exemple, usa el sistema de directori actiu de Microsoft.
+
+### Privilegis
+
+Els drets —també anomenats privilegis del sistema— defineixen les accions de caràcter global que un usuari, grup o servei està autoritzat a dur a terme sobre el conjunt del sistema operatiu. Aquestes directrius afecten la configuració i el comportament general de la màquina i no estan vinculades a un recurs o fitxer concret. Exemples d'això són la capacitat de modificar l'hora del sistema, iniciar o aturar serveis, carregar controladors de dispositius, apagar l'equip o realitzar còpies de seguretat.
+
+En els sistemes Windows, existeix l'usuari "Administrador", que té tots els drets i privilegis del sistema. En els sistemes Linux, l'usuari "ro ot és l'equivalent a l'administrador de Windows, amb accés complet a tots els fitxers i recursos del sistema. En el cas de Windows i d'alguns sistemes Linux com Ubuntu i derivats, aquest usuari està deshabilitat per defecte per motius de seguretat. En el seu lloc, hi ha un grup d'usuaris anomenat "Administradors" a Windows i "sudoers" a Linux, que tenen privilegis d'administrador, que poden executar ordres amb privilegis d'administrador mitjançant la comanda `sudo` a Linux o a Windows amb l'opció "Executar com a administrador" (entorn gràfic) o l'opció `runas` a la línia de comandes.
+
+> **Tip**: si uses Windows 11 (versió 24H2 o posterior) pots usar `sudo` per executar comandes amb privilegis d'administrador a la línia de comandes, igual que a Linux. Per activar-lo cal anar a "Sistema > Opcions avançades > Terminal > Habilitar sudo".
+
+sudo o “ejecutar como Administrador
+![sudo joke](./media/sudo_joke.png)
+
+---
 
 | [⬆️](./README.md)Tornar a inici NF1 | [⬅️](./AA2-SeguretatFisica.md)AA2 Seguretat Física | [➡️](./../README.md)Inici apunts |
 | :--- | :--- | :--- |
