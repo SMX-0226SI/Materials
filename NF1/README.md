@@ -12,7 +12,7 @@ En aquest primer bloc començarem fent una petita introducció a la seguretat in
 
 ## Taula de continguts
 
-- [AA1. Conceptes bàsics de seguretat informàtica](./AA1/AA1IntroSeguretatInform.html)
+- [AA1. Conceptes bàsics de seguretat informàtica](./AA1-ConceptesSI.md)
 - [AA2. Seguretat a l'entorn físic](./AA2-SeguretatFisica.md)
 - [AA3. Seguretat lògica](./AA3-SeguretatLogica.md)
 
