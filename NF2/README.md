@@ -1,17 +1,18 @@
-# NF2 Seguretat passiva
+# NF2 Emmagatzematge i còpies de seguretat
 
 ## Taula de continguts
 
 - [1. Introducció](#1-introducció)
 - [2. Resultats d'aprenentatge i criteris d'avaluació](#2-resultats-daprenentatge-i-criteris-davaluació)
-- [3. AA1. Sistemes d'emmagatzematge](./AA1-SistemesEmmagatzematge.md)
-- [4. AA2. Còpies de seguretat](./AA2-CopiesSeguretat.md)
+- [3. AA1. Protegint les dades](./AA1-ProtegintDades.md)
+- [4. AA2. Sistemes d'emmagatzematge](./AA2-SistemesEmmagatzematge.md)
+- [5. AA3. Còpies de seguretat](./AA3-CopiesSeguretat.md)
 
 ---
 
 ## 1. Introducció
 
-En aquest segon bloc ens centrarem en l'emmagatzematge de la informació i en les còpies de seguretat. Veurem els diferents tipus de sistemes d'emmagatzematge, les seves característiques i com assegurar la integritat de la informació. A continuació, aprendrem a realitzar còpies de seguretat amb diferents estratègies i a utilitzar mitjans d'emmagatzematge remots i extraïbles.
+La informació (les dades) és un dels actius més valuosos per les empreses, si el disc dur s’avaria els programes es poden tornar a instal·lar, però les dades si es perden no es poden recuperar. Per aquest motiu les dades són un dels actius més importants i cal protegir-les. En aquest nucli formatiu es tractarà sobre els sistemes d’emmagatzematge i les còpies de seguretat, que són les tècniques que permeten protegir la informació.
 
 Durada prevista: 18 hores
 
