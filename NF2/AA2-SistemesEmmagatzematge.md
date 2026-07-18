@@ -14,11 +14,11 @@ També tenim sistemes externs (tercer nivell):
 
 ## Redundància
 
-Duplicar la informació permet evitar la pèrdua d’aquesta davant una avaria de disc. Es pot implementar amb diferents tècniques que es combinen per disposar d'evitar un punt únic de fallada. Les tècniques més habituals són:
+**Duplicar** la informació permet evitar la pèrdua d’aquesta davant una avaria de disc. Es pot implementar amb diferents tècniques que es combinen per disposar d'evitar un punt únic de fallada. Les tècniques més habituals són:
 
 - RAID: redundant array of independent disks. És un sistema que permet combinar diverses unitats d’emmagatzematge en una sola unitat lògica. Es tracta de redundància **local** o a l'equip.
 
-- Sistemes d'emmagatzematge en xarxa: que permeten tenir redundància a nivell de xarxa local. Evidentment, aquests sistemes en xarxa, a nivell d'equip usen RAID.
+- Sistemes d'emmagatzematge en xarxa: que permeten tenir redundància a nivell de xarxa local (més d'un servidor o cabina). Evidentment, aquests sistemes en xarxa, a nivell d'equip usen RAID.
 
 - Serveis de núvol: com Dropbox, Google Drive, OneDrive, etc. que permeten tenir la informació "duplicada" a Internet. És una solució molt atractiva, sobretot per a usuaris domèstics, però cal tenir en compte aspectes legals, de privacitat i també de velocitat de sincronització (no serà el mateix sincronitzar àlbums de fotos que la base de dades d'una empresa).
 
@@ -289,7 +289,13 @@ En el dispositiu que fa de servidor d’arxius s'usa la redundància RAID per di
 
 ### DAS (Direct Attached Storage)
 
-Bàsicament, servidors que exposen carpetes compartides (exemple xarxa escola). Usen protocols com SMB o NFS. És la forma més senzilla de disposar de NS (network storage) però té alguns inconvenients:
+Bàsicament, servidors que exposen carpetes compartides (exemple xarxa escola). Usen protocols com SMB o NFS per compartir les carpetes. Pot ser tant bàsic com un servidor compartint unitats internes, com servidors amb cabines de discos dedicades a l’emmagatzematge amb hot-plug (intercanvi de disc sense aturar).
+
+![Servidor HP ProLiant DL380 Gen9](./media/hp-proliant.jpg)
+
+>Font: [HP](https://support.hpe.com/hpesc/public/docDisplay?docId=a00019684en_us&docLocale=en_US)
+
+És la solució més senzilla però té alguns inconvenients:
 
 - Si el servidor no és dedicat, el rendiment pot ser baix.
 - Disponibilitat limitada, si el servidor falla, no hi ha accés a les dades.
@@ -307,24 +313,32 @@ Són dispositius dedicats a emmagatzematge en xarxa. Normalment són servidors a
 
 ### SAN (Storage Area Network)
 
-Són xarxes d’emmagatzematge dedicades a l’emmagatzematge de dades. Són molt més complexes i costoses que les solucions NAS, però ofereixen un rendiment molt superior. S’usen en entorns empresarials amb grans volums de dades i amb necessitats de rendiment molt elevat. Són xarxes privades que connecten servidors amb dispositius d’emmagatzematge (discos, cintes, etc.) i permeten que els servidors accedeixin als dispositius d’emmagatzematge com si fossin locals.
+Són xarxes d’emmagatzematge dedicades a l’emmagatzematge de dades. Són molt més complexes i costoses que les solucions NAS, però ofereixen un rendiment molt superior. S’usen en entorns empresarials amb grans volums de dades i amb necessitats de rendiment molt elevat. Són xarxes específiques que connecten servidors amb dispositius d’emmagatzematge (cabines de discos, cintes, etc.) i permeten que els servidors accedeixin als dispositius d’emmagatzematge com si fossin locals.
+
+![cabina de discos](./media/cabina_de_discos.png)
+
+> Font: [infores](https://www.infores.es/productos/Almacenamiento-SAN.html)
+
+Aquí podeu veure un exemple de hot-plug
+
+![hot-plug](./media/hotplug.gif)
 
 Usen protocols com Fibre Channel, iSCSI, FCoE (Fibre Channel over Ethernet) que estan optimitzats per la transferència de fitxers, enfront dels protocols de xarxa habituals (TCP/IP) que estan optimitzats per a la transferència de paquets més petits. Això vol dir que els switchs no són els mateixos que els que es fan servir a la LAN i que els servidors han de tenir targetes de xarxa especials per connectar-se a la SAN, a més de les targetes convencionals per connectar-se a la LAN.
 
 Permeten disposar d'alta disponibilitat, balanceig de càrrega i ofereixen un rendiment molt superior, però el seu cost és molt més elevat.
 
-Per disposar d'alta disponibilitat, els servidors s'estructuren formant clusters, de manera que tenim no només redudància a nivell de disc (RAID) sinó també a nivell de servidor. Si un servidor falla, l'altre servidor del cluster pren el relleu i continua donant servei.
+Per disposar d'alta disponibilitat, els servidors s'estructuren formant clusters, de manera que tenim no només redudància a nivell de disc (RAID) sinó també a nivell de servidor. Si un servidor falla, els altres servidors continuen donant accés a les dades.
 
 > A una escala més petita podem muntar clúster d’emmagatzematge directament amb servidors a la LAN (DAS) amb tecnologies com Windows Server (DFS) o GlusterFS (Linux).
 
-![SAN](./media/san.png)
+![SAN](./media/san.jpg)
 
 > Font: [What is Storage Area Network?](https://www.linkedin.com/pulse/what-storage-area-network-tamim-anwar/)
 
 ## Serveis de núvol
 
-Utilitzar com sistema d’alta disponibilitat un servei al cloud. Pagament per ús enlloc d’usar infraestructura pròpia. Es pot usar fins i tot en entorn domèstic i amb plans gratuïts (per exemple,Google Drive ofereix 15 GB a qualsevol compte de gmail). Permet disposar de la informació a qualsevol lloc i en qualsevol moment, però cal tenir en compte que:
+Utilitzar com sistema d’alta disponibilitat un servei al cloud. Pagament per ús enlloc d’usar infraestructura pròpia. Es pot usar fins i tot en entorn domèstic i amb plans gratuïts (per exemple, Google Drive ofereix 15 GB a qualsevol compte de Gmail). Permeten disposar de la informació a qualsevol lloc i en qualsevol moment, amb un cost més baix que la infraestructura pròpia, una disponobilitat molt alta, però cal tenir en compte que:
 
-- Sincronització pot ser lenta.
-- La informació està fora del control de l’empresa. Seguretat de les dades?
-- Compliments legals (per exemple, la LOPD a Espanya o el RGPD a Europa) que obliguen a protegir la informació personal i confidencial.
+- Sincronització pot ser lenta, això pot ser especialment problemàtic si es treballa amb fitxers grans.
+- Es perd el control complet de les dades: Seguretat de les dades? Què passa si el servei deixa de funcionar? Què passa si el servei tanca o canvia les condicions d’ús?
+- Compliments legals (per exemple, la LOPD a Espanya o el RGPD a Europa) que obliguen complir una sèrie de requisites quan la informació inclogui dades de caràcter personal.
