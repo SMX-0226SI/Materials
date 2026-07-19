@@ -140,8 +140,8 @@ Les còpies incrementals i diferencials són útils perquè en no copiar totes l
 
 La còpia incremental és la més ràpida de fer, però la recuperació és més lenta perquè cal fer-la també de forma incremental, per tant, la còpia diferencial guanyaria en el temps de recuperació.
 
-|Incremental|Diferencial|
-|---|---|
+|Incremental                             |Diferencial                             |
+|---                                     |---                                     |
 |![Incremental](./media/incremental.png) | ![Diferencial](./media/diferencial.png)|
 
 > Font: [EaseUs](https://www.easeus.com/backup-utility/differential-backup-vs-incremental-backup.html)
