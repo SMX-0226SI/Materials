@@ -20,7 +20,7 @@ Durada prevista: 18 hores
 
 ### 2.1. Resultats d'aprenentatge
 
-RA1. Gestiona dispositius d'emmagatzematge descrivint els procediments efectuats i aplicant tècniques per assegurar la integritat de la informació.
+RA2. Gestiona dispositius d'emmagatzematge descrivint els procediments efectuats i aplicant tècniques per assegurar la integritat de la informació.
 
 ### 2.2. Criteris d'avaluació
 

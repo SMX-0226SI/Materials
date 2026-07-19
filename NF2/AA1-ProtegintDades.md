@@ -1,4 +1,4 @@
-# AA1 Proteging les dades
+# AA1 Protegint les dades
 
 ## Les dades com actiu
 
