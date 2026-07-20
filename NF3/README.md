@@ -13,7 +13,7 @@
 
 ## 1. Introducció
 
-La seguretat activa és un conjunt de tècniques i eines que permeten protegir els sistemes informàtics davant de possibles amenaces. Aquest nucli formatiu tracta sobre el programari maliciós, les vulnerabilitats dels sistemes, la criptografia i la signatura digital, que són elements clau per garantir la seguretat dels sistemes informàtics.
+La seguretat activa és un conjunt de tècniques i eines que permeten protegir els sistemes informàtics davant de possibles amenaces actuant de forma proactiva. Si recordem el model de defensa en profunditat, la seguretat activa s'aplica sobre les dades, les aplicacions i els hosts.
 
 Durada prevista: 24 hores
 
