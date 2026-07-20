@@ -128,3 +128,28 @@ La intenció d’aquestes proves és determinar la viabilitat d’un atac i l’
 
 ## Eines de detecció d'intrusions
 
+Però, i si malgrat tot, patim una intrusió? Existeixen eines per mirar de detectar les intrusions i fins i tot, combatre l’atacant.
+
+### Inspecció de logs
+
+Revisió dels logs dels sistemes, ja que allà queda registrada l’activitat. Cal configurar quines accions volen que quedin registrades. Els atacants solen intentar esborrar aquests logs per eliminar el seu rastre, però ja això indica que hi ha hagut un atac.
+
+La inspecció de logs no ens protegeix d'un atac, però sí ens permet determinar que s'ha patit un, i sobre tot, com ha estat realitzat. Això ens permetrà prendre mesures per evitar que torni a passar.
+
+### IDS/IPS
+
+Intrusion Detection Systems (IDS) i Intrusion Prevention Systems (IPS) són elements de protecció de la xarxa (NIDS) o dels equips (HIDS).
+
+Els IDS/IPS comparen els paquets de xarxa amb una base de dades de ciberatacs per detectar signatures sospitoses. Els IDS generen una alerta davant un positiu mentre que els IPS fan accions com denegar el trànsit, bloquejar la connexió, etc. N’hi ha per protegir equips concrets (host) o per protegir tota la xarxa (network).
+
+Un exemple per xarxa és [Suricata](https://suricata-ids.org/), que és un IDS/IPS de codi obert, amb una comunitat molt activa i amb una base de dades d’atacs molt completa.
+
+Per equips (HIDS) tenim [OSSEC](https://www.ossec.net/), solució open source i multiplataforma. Una altra solució és [Wazuh](https://wazuh.com/), que és una fork d’OSSEC amb funcionalitat que van més enllà d'un IDS/IPS sent actualmentun XDR/SIEM.
+
+### Honeypots
+
+Una altra tècnica consisteix a instal·lar **honeypots**, trampes que simulen ser un equip víctima. Permeten registrar les accions de l’atacant, veure quins mètodes utilitza i fins i tot pot permetre la seva identificació, mentre que està ocupat amb el honeypot i no amb els sistemes reals.
+
+Alguns exemples de honeypots són [T-Pot](https://github.com/telekom-security/tpotce) i [FaPro](https://github.com/fofapro/fapro). En aquest [enllaç]https://faweb.fofapro.com) podeu veure un honeypot de demostració.
+
+![honeypot](./media/fapro.png)
