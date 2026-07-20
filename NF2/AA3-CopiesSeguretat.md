@@ -118,13 +118,13 @@ Al final, les còpies de seguretat es fan sobre un suport físic. Els suports m�
 
 - **Unitats de cinta**: són més lentes que els discs durs, però són més duradores (uns 50 anys en condicions adequades) i fiables. Són una bona opció per a còpies de seguretat a llarg termini i per disposar de còpies immutables. Els models més habituals són LTO (Linear Tape-Open) i DLT (Digital Linear Tape). Cal tenir precaució amb condicions ambientals com alta humitat i temperatura, així com els camps magnètics, ja que poden danyar les cintes.
 
-- **RDX**: és una tecnologia que utilitza discos durs o SSD extraïbles dins d’un cartutx protector. Combina els avantatges de les unitats de cinta amb la velocitat d'una unitat de disc. Són força més cares que les cintes.
+- **RDX**: és una tecnologia que utilitza discos durs o SSD extraïbles dins d’un cartutx protector. Combina els avantatges de les unitats de cinta amb la velocitat d'una unitat de disc. Són força més cars que les cintes.
 
 ![Medis de còpia de seguretat](./media/medis_copia_seguritat.png)
 
 ### Freqüència de les còpies de seguretat
 
-Cal establir la freqüència amb què es realitzaran les còpies de seguretat, aquesta freqüència ens marca la "finestra de recuperació" (recovery window) que és el temps màxim que podem perdre de dades. Per exemple, si fem còpies de seguretat cada 24 hores, en cas d’incident podem perdre fins a 24 hores de dades. Hi ha casos on 24 hores és un temps acceptable (pel volum de dades generat) i en altres casos no ho és. Per exemple, en un sistema de comerç electrònic, perdre 24 hores de dades pot suposar una pèrdua econòmica molt gran.
+Cal establir la freqüència amb què es realitzaran les còpies de seguretat, aquesta freqüència ens marca la **finestra de recuperació** (recovery window) que és el temps màxim que podem perdre de dades. Per exemple, si fem còpies de seguretat cada 24 hores, en cas d’incident podem perdre fins a 24 hores de dades. Hi ha casos on 24 hores és un temps acceptable (pel volum de dades generat) i en altres casos no ho és. Per exemple, en un sistema de comerç electrònic, perdre 24 hores de dades pot suposar una pèrdua econòmica molt gran.
 
 Per tant, establirem la freqüència de les còpies com un compromís entre la disponibilitat, el cost de fer les còpies tant en dispositius com en temps de personal i l'impacte en el negoci de fer les còpies (deixar d'usar l'equip o aturar serveis mentre es fan les còpies).
 
@@ -148,22 +148,23 @@ La còpia incremental és la més ràpida de fer, però la recuperació és més
 
 **Quin tipus escollir?**
 
-- Completa: Quan el volum de dades a copiar no és massa elevat (<4 GB). Fem la còpia de forma diària. En aquest cas la restauració serà molt ràpida.
-- Diferencial: Quan el volum de dades és molt elevat (>50 GB) però el volum de dades que s'ha modificat és poc elevat (<4 GB).
+- **Completa**: Quan el volum de dades a copiar no és massa elevat és l'estratègia més senzilla i ràpida de restaurar, ja que només cal un arxiu per fer la restauració (<50 GB).
+
+- **Diferencial**: Quan el volum de dades és molt elevat (>50 GB) però el volum de dades que s'ha modificat és poc elevat (<4 GB).
 
   - Partim sempre d'una còpia completa i després fem diferencials, al menys de forma diària.
   - Periòdicament fem una còpia total (per exemple cada setmana) i es torna a començar per que les dades a copiar van augmentant amb el temps.
 
-- Incremental: Volum de dades molt elevat (>50 GB) i el volum de dades modificades és molt alt (>4 GB).
+- **Incremental**: Volum de dades molt elevat (>50 GB) i el volum de dades modificades és molt alt (>4 GB).
 
   - Partim de còpia completa i després fem les incrementals (potser més d'una vegada al dia).
   - Fem còpies completes més sovint (potser cada dia) per no tenir tantes incrementals, que dificulten la restauració i augmenten el risc.
 
-I com es guarden les dades? Doncs bàsicament en un arxiu per còpia, això permet optimitzar l'espai (a les cintes es deixa un espai lliure entre arxius per evitar problemes de lectura i escriptura) i permet una millor gestió de les còpies. Per una optimització encara major de l'espai és habitual comprimir les dades a, això permet reduir l'espai ocupat i el temps de còpia.
+I com es guarden les dades? Doncs bàsicament en un arxiu per còpia, això permet optimitzar l'espai (un arxiu únic ocupa menys espai que una estructura d'arxius i carpetes) i permet una millor gestió de les còpies. Per una optimització encara major de l'espai és habitual comprimir les dades abans de copiar l'arxiu al dispostiu (.ZIP, .BZ2, etc.), això permet reduir l'espai ocupat i el temps de còpia.
 
 #### Esquemes de rotació de còpies de seguretat
 
-En un sistema de còpies, les còpies antigues no són immediatament substituïdes per les noves, sinó que es van rotant. Això permet recuperar versions antigues de les dades en cas de necessitat. D'aquesta manera, tenim un "horitzó de recuperació" més ampli, ja que podem recuperar dades d'un període de temps més llarg.
+En un sistema de còpies, les còpies antigues no són immediatament substituïdes per les noves, sinó que es van rotant. Això permet recuperar versions antigues de les dades en cas de necessitat. D'aquesta manera, tenim un **horitzó de recuperació** més ampli, ja que podem recuperar dades d'un període de temps més llarg.
 
 > Exemple: descobrim que un treballador va modificar de forma indeguda un arxiu fa dos mesos. Si només tinguéssim la còpia de seguretat més recent, no podríem recuperar la versió anterior. En canvi, si tenim còpies de seguretat rotatives, podem recuperar la versió antiga.
 
@@ -214,9 +215,11 @@ Igual que en l'esquema GFS, les còpies mensuals es poden extreure de l'esquema 
 
 Si el sistema de còpies falla, no podrem restaurar les dades. Cal fer comprovacions periòdiques i proves de restauració per comprovar que tot funciona correctament.
 
-A més, aquestes comprovacions periòdiques permeten entrenar al personal en la restauració de les dades, ja que en cas d’incident, el temps de recuperació és crític i cal que el personal estigui preparat.
-
 > ❗Al 1998 Pixar va perdre 90 minuts de pel·lícula de Toy Story 2 per un error en el sistema de còpies de seguretat, per sort una treballadora disposava d'una còpia de les dades al seu equip. [Enllaç a la notícia](https://www.redstor.com/resource-hub/five-of-the-biggest-scare-stories-in-data-backup-history/)
+
+A més, aquestes comprovacions periòdiques permeten entrenar al personal en la restauració de les dades, ja que en cas d’incident, el temps de recuperació és crític i cal evitar errors que puguin empitjorar la situació. Per això és recomanable establir un calendari de proves de restauració, on es comprovi que les còpies es poden restaurar correctament i en el temps previst.
+
+> 💡 Si cal restaurar una arxiu de base de dades, és molt recomanable no sobreesciure les dades existents, d'aquesta manera es poden comparar les dues versions i si és necessari combinar-les.
 
 ### Política de còpies de seguretat
 
@@ -226,6 +229,7 @@ Això vol dir que a més de definir els aspectes ja explicats: de què fem còpi
 
 - Responsables de les còpies de seguretat.
 - Temps de retenció de les còpies de seguretat.
+- Procediments de restauració de les còpies de seguretat.
 - On es guarden les còpies de seguretat.
 - Com es protegeixen les còpies de seguretat.
 - Renovació dels suports (no podem esperar a que fallin) i destrucció segura.

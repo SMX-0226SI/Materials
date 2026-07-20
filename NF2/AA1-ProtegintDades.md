@@ -4,7 +4,7 @@
 
 La informació (les dades) és un dels actius més valuosos per les empreses, si el disc dur s’avaria els programes es poden tornar a instal·lar, però les dades si es perden no es poden recuperar. Per aquest motiu les dades també són un dels objectius més cercats pels delinqüents, el segrest de les dades (ransomware) s'ha convertit en una de les principals amenaces per a les empreses.
 
-![Ransomware](../img/ransomware.png)
+![Ransomware](./media/ransomware.png)
 
 Què podem fer? Aquí tenim dues estratègies complementàries:
 
