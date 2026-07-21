@@ -111,7 +111,7 @@ Per evitar això cal assegurar la **redundància** (alta disponibilitat d’aque
 Una de les primeres accions en qualsevol pla de seguretat és identificar els SPOF i establir les accions necessàries per minimitzar-ne l’impacte.
 
 > El 2018 i el 2019, es van produir dos accidents d'avió Boeing 737 MAX que van matar centenars de persones. L'origen dels accidents va ser un únic sensor que proporcionava dades errònies. A partir de les dades del sensor, el sistema automàtic de control de vol no va funcionar correctament i va acabar enderrocant els avions. Es van unir diversos errors, però l'únic punt de fallada va ser el sensor [detall](https://www.tutorialesprogramacionya.com/historiasoftware/bughistoricos/tema25.html).
----
 
-| [⬆️](./README.md)Tornar a inici NF1 | [➡️](./AA2-SeguretatFisica.md)AA2 Seguretat Física |
-| :--- | :--- |
+## Enllaços d'interès
+
+- [Crypt4you. Introducción a la seguridad informática y criptografía clásica. TEMA I: INTRODUCCIÓN A LA SEGURIDAD DE LA INFORMACIÓN](https://www.criptored.es/crypt4you/temas/criptografiaclasica/leccion1.html)

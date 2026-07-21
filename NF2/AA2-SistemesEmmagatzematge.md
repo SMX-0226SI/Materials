@@ -342,3 +342,11 @@ Utilitzar com sistema d’alta disponibilitat un servei al cloud. Pagament per �
 - Sincronització pot ser lenta, això pot ser especialment problemàtic si es treballa amb fitxers grans.
 - Es perd el control complet de les dades: Seguretat de les dades? Què passa si el servei deixa de funcionar? Què passa si el servei tanca o canvia les condicions d’ús?
 - Compliments legals (per exemple, la LOPD a Espanya o el RGPD a Europa) que obliguen complir una sèrie de requisites quan la informació inclogui dades de caràcter personal.
+
+## Enllaços d'interès
+
+- [NASEROS. Youtube: Tipos de RAID. En qué se diferencian y cuales son los mejores](https://youtu.be/x8MXkvgeD0w?si=PxmhBAzU1JfD0yvy)
+
+-[Pau Tomé. Youtube: RAID en Windows Server](https://youtu.be/3XO-GrcyxHg?si=gzZ1YTr-ovlSkkI4)
+
+- [IBM. What is a storage area network (SAN)?](https://www.ibm.com/think/topics/storage-area-network)

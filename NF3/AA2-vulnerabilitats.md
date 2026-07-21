@@ -150,6 +150,12 @@ Per equips (HIDS) tenim [OSSEC](https://www.ossec.net/), solució open source i 
 
 Una altra tècnica consisteix a instal·lar **honeypots**, trampes que simulen ser un equip víctima. Permeten registrar les accions de l’atacant, veure quins mètodes utilitza i fins i tot pot permetre la seva identificació, mentre que està ocupat amb el honeypot i no amb els sistemes reals.
 
-Alguns exemples de honeypots són [T-Pot](https://github.com/telekom-security/tpotce) i [FaPro](https://github.com/fofapro/fapro). En aquest [enllaç]https://faweb.fofapro.com) podeu veure un honeypot de demostració.
+Alguns exemples de honeypots són [T-Pot](https://github.com/telekom-security/tpotce) i [FaPro](https://github.com/fofapro/fapro). En aquest [enllaç](https://faweb.fofapro.com) podeu veure un honeypot de demostració.
 
 ![honeypot](./media/fapro.png)
+
+## Enllaços d'interès
+
+- [INCIBE.Guía de gestión de riesgos](https://www.incibe.es/empresas/guias/gestion-riesgos-guia-empresario)
+
+- [INCIBE. Guía de ciberataques](https://www.incibe.es/sites/default/files/docs/guia-ciberataques/osi-guia-ciberataques.pdf)

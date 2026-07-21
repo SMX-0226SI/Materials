@@ -217,7 +217,12 @@ En els sistemes Windows, existeix l'usuari "Administrador", que té tots els dre
 sudo o “ejecutar como Administrador
 ![sudo joke](./media/sudo_joke.png)
 
----
+## Enllaços d'interès
 
-| [⬆️](./README.md)Tornar a inici NF1 | [⬅️](./AA2-SeguretatFisica.md)AA2 Seguretat Física | [➡️](./../README.md)Inici apunts |
-| :--- | :--- | :--- |
+- [Securitron Linux. How to crack an Ubuntu user password easily with John The Ripper.](https://www.securitronlinux.com/debian-testing/how-to-crack-an-ubuntu-user-password-easily-with-john-the-ripper/)
+
+- [WaytoIT. Recuperando password en Ubuntu](https://waytoit.wordpress.com/2013/06/06/recuperando-password-en-ubuntu/)
+
+- [WaytoIT. Recuperando password en Windows](https://waytoit.wordpress.com/2013/06/25/recuperando-password-en-windows/)
+
+- [INCIBE. Mecanismos básicos de control de acceso](https://www.incibe.es/incibe-cert/blog/control-acceso)

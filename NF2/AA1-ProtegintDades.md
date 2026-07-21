@@ -48,3 +48,7 @@ I com es destrueixen de forma segura les dades d'aquests suports? Doncs depenent
 - **Sobrescriptura**: consisteix a sobreescriure la informació amb dades aleatòries. Aquesta estratègia és efectiva en suports magnètics i en suports de memòria flash (SSD, USB, targetes SD, etc.) i permet reutilitzar el dispositiu. Òbviament, no es pot usar en dispostius d'un sol ús com DVD o similar. La sobrescriptura es pot fer amb diferents estratègies, com per exemple, sobreescriure una vegada amb zeros, sobreescriure tres vegades amb dades aleatòries i finalment sobreescriure una vegada amb uns. Aquesta estratègia és la que recomana el Departament de Defensa dels Estats Units (DoD 5220.22-M).
 
 > ❗Tot i que pensem en les unitats dels ordinadors, la informació pot estar en altres dispositius. Per exemple, les impressores i fotocopiadores digitals tenen memòria interna on es poden emmagatzemar les dades que s’han imprès o escanejat. Per tant, cal tenir en compte aquests dispositius a l’hora d'evitar filtracions de dades [Vídeo: Copy Machines, a Security Risk?](https://youtu.be/iC38D5am7go?si=d__dJDAlE-Zwb85A).
+
+## Enllaços d'interès
+
+[IONOS.La im­po­r­ta­n­cia de contar con un disaster recovery plan](https://www.ionos.es/digitalguide/servidores/know-how/todo-sobre-el-disaster-recovery-plan-o-drp/)

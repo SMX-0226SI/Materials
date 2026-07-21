@@ -288,5 +288,12 @@ Anem a fer un exemple de dimensionament d’un SAI per una oficina amb 15 ordina
 
 Usant l'eina de selecció de SAI d'APC, obtenim que el model més adequat és un SAI SMART-UPS-SRT de 10 kVA. Amb aquest model realment estem usant el 65% de la seva potència màxima, i ens proporcionarà una autonomia d'uns 20 minuts aproximadament.
 
-| [⬆️](./README.md)Tornar a inici NF1 | [⬅️](./AA1-ConceptesSI.md)AA1 Conceptes de Seguretat Informàtica | [➡️](./AA3-SeguretatLogica.md)AA3 Seguretat Lògica |
-| :--- | :--- | :--- |
+## Enllaços d'interès
+
+- [ABAST. Youtube. Nuevo CPD de la CNMC - Caso de éxito de ABAST](https://youtu.be/bZi2GOrdmMg?si=QA-espaR8oGNgrKJ)
+
+- [LaSalleURL. El estándar TIA 942 y los Tier](https://blogs.salleurl.edu/es/el-estandar-tia-942-y-los-tier)
+
+- [Google Cloud Tech. Youtube: Google Data Center 360° Tour](https://youtu.be/zDAYZU4A3w0?si=fuPjhGc6WTDO8ZOK)
+
+- [NASEROS. YouTube: Todo lo que debes saber para elegir el mejor SAI](https://youtu.be/rp492vPid2E?si=wOY5vZMDjAoTUaim)

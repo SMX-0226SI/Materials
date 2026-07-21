@@ -291,3 +291,15 @@ En sistemes Windows tenim l'eina [nativa](https://somebooks.es/crear-una-imagen-
 A Linux a part de Clonezilla, tenima la comanda `dd` que permet fer una còpia bit a bit d'un dispositiu d'emmagatzematge. També hi ha eines com [PartImage](https://www.partimage.org).
 
 Quan el cal és fer imatges forenses, hi ha eines com [FTK Imager](https://accessdata.com/product-download/ftk-imager-version-4-5-0) o [Guymager](https://guymager.sourceforge.io/).
+
+## Enllaços d'interès
+
+- [INCIBE. Guía de copias de seguridad](https://www.incibe.es/index.php/empresas/guias/copias-seguridad-guia-aproximacion-el-empresario)
+
+- [Backup Types Explained: Full, Incremental, and Differential (NAKIVO Team)](https://www.nakivo.com/blog/backup-types-explained/)
+
+- [IONOS. Los mejores pro­vee­do­res de copias de seguridad en la nube](https://www.ionos.com/es-us/digitalguide/servidores/herramientas/programas-para-backups-online/)
+
+- [Somebooks. Clonezilla: Crear una imagen del equipo paso a paso](https://somebooks.es/clonezilla-crear-una-imagen-del-equipo-paso-paso/)
+
+- [David Casas. YouTube: Clonando discos NIVEL FORENSE con clonadora HARDWARE](https://youtu.be/etG6uFN4Gfk?si=dqxUvoOQYMxAG_k_)
