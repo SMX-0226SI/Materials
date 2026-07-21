@@ -35,7 +35,7 @@ flowchart TD
     end
 
     %% Connexió invisible per forçar que el bloc de Desxifratge quedi a sota
-    Xifratge ~~~ Desxifratge
+    Xifratge --> Desxifratge
 
     %% Subgraf 2: Procés de Desxifratge (D'esquerra a dreta)
     subgraph Desxifratge ["Desxifratge"]
@@ -98,7 +98,7 @@ flowchart TD
     end
 
     %% Connexió invisible per forçar que el bloc de Desxifratge quedi a sota
-    Xifratge ~~~ Desxifratge
+    Xifratge --> Desxifratge
 
     %% Aplicació d'estils als nodes
     class A,B,C,D carpeta
@@ -180,9 +180,57 @@ sequenceDiagram
 
 > 💡L'operació $A= g^a \mod p$ significa que fem la potència i del resultat es calcula el residu de la divisió amb `p`. Això que us pot semblar molt estrany, és l'àlgebra de nombres discrets o de conjunt finits. És un cas similar a si voleu saber quin dia de la setmana serà d'aquí a 57 dies. Si suposeu que avui és dimarts (dia 2), aleshores el dia de la setmana serà `(2 + 57) mod 7 = 59 mod 7 = 3`, és a dir, dimecres.
 
-La fortalesa de l'algoritme és que, encara que un atacant conegui els valors públics (p, g, A i B), no podrà calcular la clau de sessió compartida sense conèixer els secrets a i b. Perquè això sigui cert cal que p sigui un nombre primer molt gran (per exemple, de 2048 bits) i que g sigui un generador adequat. Es van definir grups de generador i nombre primer que són segurs i que es poden utilitzar per a l'algoritme de Diffie-Hellman. Aquests grups es coneixen com a "grups de Diffie-Hellman" i es troben documentats a diversos RFCs. Actualment, es recomana utilitzar grups de Diffie-Hellman amb nombres primers d'almenys 2048 bits [RFC3526](https://www.rfc-editor.org/info/rfc3526/#section-2) o millor encara, utilitzar l'algoritme de corbes el·líptiques (ECDH)[RFC 8418](https://datatracker.ietf.org/doc/html/rfc8418) que ofereix la mateixa seguretat amb claus més curtes i més ràpides de calcular.
+La fortalesa de l'algoritme és que, encara que un atacant conegui els valors públics (p, g, A i B), no podrà calcular la clau de sessió compartida sense conèixer els secrets a i b. Perquè això sigui cert cal que p sigui un nombre primer molt gran (per exemple, de 2048 bits) i que g sigui un generador adequat. Es van definir grups de generador i nombre primer que són segurs i que es poden utilitzar per a l'algoritme de Diffie-Hellman. Aquests grups es coneixen com a "grups de Diffie-Hellman" i es troben documentats a diversos RFCs. Actualment, es recomana utilitzar grups de Diffie-Hellman amb nombres primers d'almenys 2048 bits [RFC3526](https://www.rfc-editor.org/info/rfc3526/#section-2) o millor encara, utilitzar l'algoritme de corbes el·líptiques (ECDH)[RFC 8418](https://datatracker.ietf.org/doc/html/rfc8418) que ofereix la mateixa seguretat però treballant amb nombres més petits (les claus d'intercanvi de corbes el·líptiques poden ser de 256 bits i oferir la mateixa seguretat que una clau de 3072 bits en Diffie-Hellman).
 
 Diffie-Hellman aplica **forward secrecy**, és a dir, que si un atacant aconsegueix la clau privada d’un dels participants, no podrà calcular les claus de sessió passades. Un cop la sessió ha acabat, la clau de sessió s'elimina de la RAM d'ambdós participants.
+
+## Control d'integritat
+
+Per garantir la integritat dels missatges s’utilitzen funcions de **hash** o resum, que generen un conjunt de bits per a cada entrada. Aquest resum té una longitud fixa determinada per l'algoritme i no per la mida del missatge. Aquestes funcions han de complir tres condicions:
+
+1. Donat el missatge és senzill calcular el resum.
+2. És impossible a partir del resum obtenir el missatge.
+3. Dos missatges no haurien de poder generar el mateix resum (col·lisions).
+
+La idea que una funció de hash no sigui reversible, pot semblar difícil d'entendre, però podeu pensar a una liquadora amb fruita.
+
+![Funció de hash](./media/hash.png)
+
+Per comprovar la integritat es genera el hash en recepció del missatge i es compara amb el hash rebut.
+
+Els algoritmes de resum més usats avui dia: SHA 256 i SHA 512.El número fa referència a la mida del resum en bits, altres algoritmes que s'havien usat anteriorment com MD5 o SHA-1 són obsolets no només per la mida del resum obtingut, sinó també perquè s'han trobat vulnerabilitats que permeten trobar col·lisions.
+
+El tercer punt òbviament és impossible de garantir, perquè existeixen infinites entrades possibles (missatges) i només un nombre finit de resums possibles ($2^{longitud}$). Però la probabilitat que això passi (col·lisió és extremadament baixa si l'algoritme és segur i la longitud del resum és prou gran).
+
+```mermaid
+graph LR
+    %% Estils generals del gràfic
+    classDef textInput fill:#ADD8E6,stroke:#708090,stroke-width:2px,color:#000000;
+    classDef hashFunc fill:#FFB300,stroke:#708090,stroke-width:2px,color:#000000;
+    classDef hashOutput fill:#D3D3D3,stroke:#708090,stroke-width:2px,color:#000000,font-family:monospace;
+    classDef arrow stroke:#008000,stroke-width:3px;
+
+    %% Fila 1
+    T1["In darkness"] --> H1["funció hash"] --> O1["683f40e604b9560<br>f5bf8ff5c3da5ef71"]
+    
+    %% Fila 2
+    T2["In darkness<br>we'll rest"] --> H2["funció hash"] --> O2["f4ff2dbe2d00e7d4<br>930b67656ed648<br>59"]
+    
+    %% Fila 3
+    T3["In darkness we'll<br>rest so forgive<br>what you can't<br>forget"] --> H3["funció hash"] --> O3["a182b59c60dfa19<br>2a3b6a44638614<br>496"]
+
+    %% Aplicació d'estils
+    class T1,T2,T3 textInput;
+    class H1,H2,H3 hashFunc;
+    class O1,O2,O3 hashOutput;
+    
+    %% Estil de les fletxes (Mermaid aplica l'estil de línia globalment o per id)
+    linkStyle 0,1,2,3,4,5 stroke:#00A300,stroke-width:2px;
+```
+
+Al enllaços teniu un eina online que us permet calcular el has d'un missatge.
+
+> 💡Existeix una variant que és el HMAC (hash-based message authentication code) que combina el resum amb la incorporació d'una clau secreta compartida. Això és útil perquè a més de la integritat, permet garantir la autenticitat de l'emissor.
 
 ## Enllaços d'interès
 
@@ -191,3 +239,5 @@ Diffie-Hellman aplica **forward secrecy**, és a dir, que si un atacant aconsegu
 - [DCODE. Codi de rotació o de Cèsar](https://www.dcode.fr/rot-cipher)
 
 - [101 Computing. Emulador màquina Enigma](https://www.101computing.net/enigma-machine-emulator/)
+
+- [Online Hash Calculator](https://cryptotools.net/hash)
