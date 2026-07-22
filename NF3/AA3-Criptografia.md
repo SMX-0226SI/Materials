@@ -232,6 +232,13 @@ Al enllaços teniu un eina online que us permet calcular el has d'un missatge.
 
 > 💡Existeix una variant que és el HMAC (hash-based message authentication code) que combina el resum amb la incorporació d'una clau secreta compartida. Això és útil perquè a més de la integritat, permet garantir la autenticitat de l'emissor.
 
+### Usos del hash
+
+- Validar que un missatge o fitxer no ha estat modificat (malware, atacs, etc.), comparant el hash calculat amb el hash original.
+- Comprovar la integritat de fitxers descarregats d’internet, comparant el hash del fitxer descarregat amb el hash publicat pel desenvolupador. Això és molt habitual quan es descarreguen imatges ISO de sistemes operatius, com Ubuntu, Debian, etc.
+- Emmagatzemar les contrasenyes de forma segura. Quan l’usuari introdueix la contrasenya, es calcula el hash i es compara amb el hash emmagatzemat i així es garanteix el secret de la contrasenya.
+- Signatura digital. Quan a la unitat següent estudiem la signatura digital, veurem que la signatura (clau privada) s'aplica sobre un hash del missatge o document, no sobre l'original.
+
 ## Enllaços d'interès
 
 - [Practical Networking. Cryptography](https://www.practicalnetworking.net/series/cryptography/cryptography/)
