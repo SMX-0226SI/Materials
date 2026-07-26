@@ -7,7 +7,7 @@
 - [3. AA1. Malware](./AA1-Malware.md)
 - [4. AA2. Vulnerabilitats](./AA2-Vulnerabilitats.md)
 - [5. AA3. Criptografia](./AA3-Criptografia.md)
-- [6. AA4. Signatura digital](./AA4-SignaturaDigital.md)
+- [6. AA4. Recuperació de dades](./AA4-RecuperacioDades.md)
 
 ---
 
