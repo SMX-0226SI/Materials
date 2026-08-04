@@ -25,11 +25,17 @@ RA1. Aplica mesures de seguretat passiva en sistemes informàtics descrivint car
 ### 2.2. Criteris d'avaluació
 
 1.1 Valora la importància de mantenir la informació segura.
+
 1.2  Descriu les diferències entre seguretat física i lògica.
+
 1.3 Defineix les característiques de la ubicació física i condicions ambientals dels equips i servidors.
+
 1.4 Identifica la necessitat de protegir físicament els sistemes informàtics.
+
 1.5 Verifica el funcionament dels sistemes d'alimentació ininterrompuda.
+
 1.6 Selecciona els punts d'aplicació dels sistemes d'alimentació ininterrompuda.
+
 1.7 Esquematitza les característiques d'una política de seguretat basada en llistes de control d'accés.
 1.8 Valora la importància d'establir una política de contrasenyes.
 1.9 Valora els avantatges que suposa la utilització de sistemes biomètrics.
