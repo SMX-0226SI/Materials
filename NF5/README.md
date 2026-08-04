@@ -4,8 +4,8 @@
 
 - [1. Introducció](#1-introducció)
 - [2. Resultats d'aprenentatge i criteris d'avaluació](#2-resultats-daprenentatge-i-criteris-davaluació)
-- [3. AA1.Enginyeria social i phising](./AA1-EnginyeriaSocialPhising.md)
-- [4. AA2. Monitoratge](./AA2-Monitoratge.md)
+- [3. AA1. Fraus informàtics i robatoris d'informació](./AA1-EnginyeriaSocialPhising.md)
+- [4. AA2. Inventari i Monitorització de la xarxa](./AA2-InventariMonitoritzacio.md)
 - [5. AA3. Signatura digital](./AA3-SignaturaDigital.md)
 - [6. AA4. Tallafocs](./AA4-Tallafocs.md)
 
