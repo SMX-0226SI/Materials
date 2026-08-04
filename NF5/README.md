@@ -26,10 +26,17 @@ RA4. Assegura la privadesa de la informació transmesa en xarxes informàtiques 
 ### 2.2. Criteris d'avaluació
 
 4.1 Identifica la necessitat d'inventariar i controlar els serveis de xarxa.
+
 4.2 Contrasta la incidència de les tècniques d'enginyeria social en els fraus informàtics i robatoris d'informació.
+
 4.3 Dedueix la importància de minimitzar el volum de trànsit generat per la publicitat i el correu brossa.
+
 4.4 Aplica mesures per evitar el monitoratge de xarxes cablejades.
+
 4.5 Classifica i valora les propietats de seguretat dels protocols usats en xarxes sense fils.
+
 4.6 Descriu sistemes d'identificació com la signatura electrònica, certificat digital, entre altres.
+
 4.7 Utilitza sistemes d'identificació com la signatura electrònica, certificat digital, entre altres.
+
 4.8 Instal·la i configura un tallafocs en un equip o servidor.
