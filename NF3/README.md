@@ -26,8 +26,13 @@ RA3. Aplica mecanismes de seguretat activa descrivint-ne les característiques i
 ### 2.2. Criteris d'avaluació
 
 3.1 Segueix plans de contingència per actuar davant fallades de seguretat.
+
 3.2 Classifica els principals tipus de programari maliciós.
+
 3.3 Realitza actualitzacions periòdiques dels sistemes per a corregir possibles vulnerabilitats.
+
 3.4 Verifica l'origen i l'autenticitat de les aplicacions que s'instal·len en els sistemes.
+
 3.5 Instal·la, prova i actualitza aplicacions específiques per a la detecció i eliminació de programari maliciós.
+
 3.6 Aplica tècniques de recuperació de dades.
