@@ -7,7 +7,7 @@
 - [3. Monitorització de la xarxa](#3-monitorització-de-la-xarxa)
 - [4. Protecció del trànsit de xarxa](#4-protecció-del-trànsit-de-xarxa)
 - [5. Seguretat en xarxes sense fils](#5-seguretat-en-xarxes-sense-fils)
-- [6. Enllaços d'interès](#5-enllaços-dinterès)
+- [6. Enllaços d'interès](#6-enllaços-dinterès)
 
 ---
 
