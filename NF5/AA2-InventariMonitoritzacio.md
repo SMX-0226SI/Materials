@@ -6,7 +6,8 @@
 - [2. Inventari de la xarxa](#2-inventari-de-la-xarxa)
 - [3. Monitorització de la xarxa](#3-monitorització-de-la-xarxa)
 - [4. Protecció del trànsit de xarxa](#4-protecció-del-trànsit-de-xarxa)
-- [5. Enllaços d'interès](#5-enllaços-dinterès)
+- [5. Seguretat en xarxes sense fils](#5-seguretat-en-xarxes-sense-fils)
+- [6. Enllaços d'interès](#5-enllaços-dinterès)
 
 ---
 
@@ -77,9 +78,29 @@ Per evitar que els sniffers obtinguin dades llegibles, la informació ha de viat
 - Connexions remotes mitjançant SSH (Secure Shell) en lloc de Telnet.
 - Ús de VPN (Virtual Private Network) per establir connexions segures a través d'Internet.
 
-> 💡Aquests protocols s'estudien al mòdul de "Serveis de Xarxes".
+> 💡El detall i aplicació d'aquests protocols per assegurar serveis, s'estudiea al mòdul de "Serveis de Xarxes".
 
-## 5. Enllaços d'interès
+## 5. Seguretat en xarxes sense fils
+
+Les xarxes sense fil utilitzen ones electromagnètiques de radiofreqüència per transmetre dades. Com que el senyal travessa paret i finestres, la monitorització i el control d'accés són crítics, perquè mentre a una xarxa cablejada la intrussió requereix un accés físic, a una xarxa sense fils es pot accedir des de qualsevol lloc dins de l'àrea de cobertura.
+
+El primer punt a considerar és el protocol de seguretat a usar. En el cas de les xarxes sense fils, aquest protocol té dues funcions principals: autenticar els usuaris i xifrar el trànsit. A una xarxa oberta, no és que qualsevol pugui accedir-hi, sinó que qualsevol pot interceptar el trànsit i capturar dades.
+
+El primer protocol de seguretat va ser **WEP** (Wired Equivalent Privacy), que utilitza un xifratge RC4 amb una clau estàtica. És un protocol actualment molt insegur i obsolet (des del 2004).
+
+El seu substitut va ser **WPA** (Wi-Fi Protected Access), originalment va mantenir el xifratge RC4 però amb una clau dinàmica (TKIP) i un sistema d'autenticació més robust. Tot i així, també es va demostrar que era vulnerable a atacs. Tenia dos modes: **WPA-Personal** (o WPA-PSK) i **WPA-Enterprise** (amb autenticació mitjançant un servidor RADIUS). Amb el temps, es van anar trobant diverses vulnerabilitat, de forma que avui també es considera no recomanat, tot i que encara no està declarat obsolet.
+
+Els dos protocols que s'utilitzen avui dia:
+
+- **WPA2**: utilitza un xifratge AES amb una clau de 128 bits. Usa la mateixa clau per xifrar tot el trànsit de la xarxa. Continua usant el sistema d'autenticació amb clau precompartida (PSK) o amb un servidor RADIUS. És un protocol molt popular i en general segur, tot i que també s'han trobat vulnerabilitats com el conegut atac **KRACK** (Key Reinstallation Attack) i atacs contra les claus precompartides.
+
+- **WPA3**: és el protocol més recent i segur. Utilitza un xifratge AES amb una clau de 192 bits (només mode empresarial). A més, cada comunicació usa una clau de xifrat única. El sistema d'autenticació personal és més robust (SAE, Simultaneous Authentication of Equals) enlloc del PSK. També introdueix noves funcionalitats com la protecció contra atacs de diccionari i la possibilitat de crear xarxes sense fils obertes amb xifratge (els usuaris poden connectar-se sense contrasenya però el trànsit està xifrat).
+
+> 💡**Nota**: sovint es recomana que la xarxa no difongui el seu identificador **SSID**, però a part de ser una barrera de seguretat extremadament dèbil, pot provocar més inseguretat. De la mateixa manera, filtrar per MAC pot ser un bona idea per "limitar" la connexió d'equips per part dels usuaris, però en cap cas millora la seguretat (és fàcil suplantar la MAC).
+
+Respecte la monitorització de les xarxes, és important comprovar quins equips hi són connectats per detectar intrusos.
+
+## 6. Enllaços d'interès
 
 1. [ManageEngine. Conceptos básicos del protocolo SNMP](https://www.manageengine.com/es/network-monitoring/what-is-snmp.html)
 
@@ -90,3 +111,7 @@ Per evitar que els sniffers obtinguin dades llegibles, la informació ha de viat
 4. [Wireshark](https://www.wireshark.org/)
 
 5. [PythonEatsSQuirrel. Throwing Star LAN Tap (YouTube)](https://youtu.be/nzkCLZeeKBE?si=C0DvTnYuOokDWq0M)
+
+6. [Kaspersky. ¿Qué es WEP, WPA, WPA2 y WPA3 y cuáles son sus diferencias?](https://latam.kaspersky.com/resource-center/definitions/wep-vs-wpa)
+
+7. [Eufy. WPA2 vs WPA3: Una Guía Completa de Seguridad Wi-Fi](https://www.eufy.com/eu-es/blogs/security-camera/wpa2-vs-wpa3)

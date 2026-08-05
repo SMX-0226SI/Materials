@@ -5,9 +5,9 @@
 - [1. El Factor Humà com a Vector d'Atac](#1-el-factor-humà-com-a-vector-datac)
 - [2. Principals Tècniques d'Enginyeria Social](#2-principals-tècniques-denginyeria-social)
 - [3. Impacte en Organitzacions i Empreses](#3-impacte-en-organitzacions-i-empreses)
-- [4. Correu no desitjat](#correu-no-desitjat)
+- [4. Correu no desitjat](#4-correu-no-desitjat)
 - [5. Estratègies de Prevenció i Mitigació](#5-estratègies-de-prevenció-i-mitigació)
-- [6- Enllaços d'Interès](#enllaços-dinterès)
+- [6. Enllaços d'Interès](#6-enllaços-dinterès)
 
 ---
 
