@@ -24,8 +24,13 @@ RA5. Reconeix la legislació i normativa sobre seguretat i protecció de dades a
 ### 2.2. Criteris d'avaluació
 
 5.1 Descriu la legislació sobre protecció de dades de caràcter personal.
+
 5.2 Determina la necessitat de controlar l’accés a la informació personal emmagatzemada.
+
 5.3 Identifica les figures legals que intervenen en el tractament i manteniment dels fitxers de les dades.
+
 5.4 Contrasta l’obligació de posar a disposició de les persones les dades personals que els concerneixen.
+
 5.5 Descriu la legislació actual sobre el serveis de la societat de la informació i comerç electrònic.
+
 5.6 Contrasta les normes sobre gestió de seguretat de la informació, en especial les referents al correu electrònic.
