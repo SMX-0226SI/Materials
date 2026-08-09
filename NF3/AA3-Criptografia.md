@@ -111,7 +111,7 @@ Principals algoritmes:
 - ElGamal
 - Criptografia de corba el·líptica: Fan servir equacions cúbiques (de tercer grau).
 
-Amb la criptografia de clau pública també es poden **signar missatges**, garantint la integritat i l’autenticitat del missatge. Signar no fa que el missatge sigui confidencial, sinó que permet verificar que el missatge no ha estat modificat i que prové del remitent que diu ser. A la propera unitat veurem amb més detall com funciona la signatura digital.
+De la mateixa manera que si es xifra un missatge amb la clau pública, només es pot desxifrar amb la clau privada, també es pot fer el procés invers. Si un missatge es xifra amb la clau privada, només es pot desxifrar amb la clau pública. Això permet que qualsevol pugui verificar que el missatge prové del propietari de la clau privada, és a dir, permet la **signatura digital**.
 
 ### Avantages i inconvenients xifrat clau pública
 
