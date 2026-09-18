@@ -1,4 +1,4 @@
-# AA2. Vulnerabilitats
+# AA2 Vulnerabilitats
 
 ## Introducció
 
