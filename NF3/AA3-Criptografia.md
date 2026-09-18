@@ -1,4 +1,4 @@
-# AA3. Criptografia
+# AA3 Criptografia
 
 ## Introducció
 
@@ -22,30 +22,7 @@ I quan de segur són els sistemes de xifrat? Es parla de **seguretat incondicion
 
 També coneguda com a criptografia de clau secreta o compartida, és un tipus de criptografia on la mateixa clau s’utilitza tant per xifrar com per desxifrar la informació. Per tant, en comunicacions, tant l’emissor com el receptor han de conèixer la clau i mantenir-la en secret.
 
-```mermaid
-flowchart TD
-    %% Estils globals per a nodes i fletxes
-    classDef carpeta fill:#83c552,stroke:#2e6917,stroke-width:2px,color:#ffffff,font-weight:bold;
-    linkStyle default stroke:#4caf50,stroke-width:3px;
-
-    %% Subgraf 1: Procés de Xifratge (D'esquerra a dreta)
-    subgraph Xifratge ["Xifratge"]
-        direction LR
-        A["📂 Missatge en clar"] -->|"<b>Xifrat</b><br/>🔑 Clau"| B["🔒 Missatge xifrat"]
-    end
-
-    %% Connexió invisible per forçar que el bloc de Desxifratge quedi a sota
-    Xifratge --> Desxifratge
-
-    %% Subgraf 2: Procés de Desxifratge (D'esquerra a dreta)
-    subgraph Desxifratge ["Desxifratge"]
-        direction LR
-        C["🔒 Missatge xifrat"] -->|"<b>Desxifrat</b><br/>🔑 Clau"| D["📂 Missatge en clar"]
-    end
-
-    %% Aplicació d'estils als nodes
-    class A,B,C,D carpeta
-```
+![Xifrat simètric](./media/xifratSimetric.svg)
 
 Alguns dels algorismes més coneguts són:
 
@@ -79,30 +56,7 @@ S’utilitzen un parell de claus: una clau privada i una clau pública. El remit
 
 Les dues claus (pública i privada) estan matemàticament relacionades, però és computacionalment inviable deduir la clau privada a partir de la clau pública. Això permet que qualsevol pugui xifrar missatges per a un destinatari concret, però només el destinatari pot desxifrar-los.
 
-```mermaid
-flowchart TD
-    %% Estils globals per a nodes i fletxes
-    classDef carpeta fill:#83c552,stroke:#2e6917,stroke-width:2px,color:#ffffff,font-weight:bold;
-    linkStyle default stroke:#4caf50,stroke-width:3px;
-
-    %% Subgraf 1: Procés de Xifratge (D'esquerra a dreta)
-    subgraph Xifratge ["Xifratge"]
-        direction LR
-        A["📂 Missatge en clar"] -->|"<b>Xifrat</b><br/>🔑 Clau pública del destinatari"| B["🔒 Missatge xifrat"]
-    end
-
-    %% Subgraf 2: Procés de Desxifratge (D'esquerra a dreta)
-    subgraph Desxifratge ["Desxifratge"]
-        direction LR
-        C["🔒 Missatge xifrat"] -->|"<b>Desxifrat</b><br/>🗝️ Clau privada del destinatari"| D["📂 Missatge en clar"]
-    end
-
-    %% Connexió invisible per forçar que el bloc de Desxifratge quedi a sota
-    Xifratge --> Desxifratge
-
-    %% Aplicació d'estils als nodes
-    class A,B,C,D carpeta
-```
+![Clau pública i privada](./media/xifratAsimetric.svg)
 
 Principals algoritmes:
 
@@ -148,35 +102,7 @@ La seguretat es basa a la dificultat de calcular [logaritmes discrets](https://c
 
 Els dos participants acorden usar dos nombres públics: un nombre primer (p) i un generador (g).
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor A as Alice
-    actor B as Bob
-    
-    Note over A, B: Pas 1: Configuració públic (Públic)
-    A->>B: Acorden el parell p i g
-
-    Note over A: Pas 2: Alice calcula un valor secret
-    A->>A: Calcula operació: A = g^a mod p
-
-    Note over B: Pas 3: Bob calcula valor secret
-    B->>B: Calcula valor públic: B = g^b mod p
-    
-    Note over A: Pas 4: Alice envia el valor públic a Bob
-    A->>B: Envia valor públic (A)
-
-    Note over B: Pas 5: Bob envia el valor públic a Alice
-    B->>A: Envia valor públic (B)
-
-    Note over A: Pas 6: Alice calcula el secret compartit
-    A->>A: Secret = B^a mod p
-
-    Note over B: Pas 7: Bob calcula el secret compartit
-    B->>B: Secret = A^b mod p
-
-    Note over A, B: Alice i Bob tenen el  secret compartit
-```
+![Diffie-Hellman](./media/diffie-hellman.svg)
 
 > 💡L'operació $A= g^a \mod p$ significa que fem la potència i del resultat es calcula el residu de la divisió amb `p`. Això que us pot semblar molt estrany, és l'àlgebra de nombres discrets o de conjunt finits. És un cas similar a si voleu saber quin dia de la setmana serà d'aquí a 57 dies. Si suposeu que avui és dimarts (dia 2), aleshores el dia de la setmana serà `(2 + 57) mod 7 = 59 mod 7 = 3`, és a dir, dimecres.
 
@@ -202,31 +128,7 @@ Els algoritmes de resum més usats avui dia: SHA 256 i SHA 512.El número fa ref
 
 El tercer punt òbviament és impossible de garantir, perquè existeixen infinites entrades possibles (missatges) i només un nombre finit de resums possibles ($2^{longitud}$). Però la probabilitat que això passi (col·lisió és extremadament baixa si l'algoritme és segur i la longitud del resum és prou gran).
 
-```mermaid
-graph LR
-    %% Estils generals del gràfic
-    classDef textInput fill:#ADD8E6,stroke:#708090,stroke-width:2px,color:#000000;
-    classDef hashFunc fill:#FFB300,stroke:#708090,stroke-width:2px,color:#000000;
-    classDef hashOutput fill:#D3D3D3,stroke:#708090,stroke-width:2px,color:#000000,font-family:monospace;
-    classDef arrow stroke:#008000,stroke-width:3px;
-
-    %% Fila 1
-    T1["In darkness"] --> H1["funció hash"] --> O1["683f40e604b9560<br>f5bf8ff5c3da5ef71"]
-    
-    %% Fila 2
-    T2["In darkness<br>we'll rest"] --> H2["funció hash"] --> O2["f4ff2dbe2d00e7d4<br>930b67656ed648<br>59"]
-    
-    %% Fila 3
-    T3["In darkness we'll<br>rest so forgive<br>what you can't<br>forget"] --> H3["funció hash"] --> O3["a182b59c60dfa19<br>2a3b6a44638614<br>496"]
-
-    %% Aplicació d'estils
-    class T1,T2,T3 textInput;
-    class H1,H2,H3 hashFunc;
-    class O1,O2,O3 hashOutput;
-    
-    %% Estil de les fletxes (Mermaid aplica l'estil de línia globalment o per id)
-    linkStyle 0,1,2,3,4,5 stroke:#00A300,stroke-width:2px;
-```
+![hash](./media/hash.svg)
 
 Al enllaços teniu un eina online que us permet calcular el has d'un missatge.
 
