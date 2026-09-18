@@ -24,20 +24,7 @@ La signatura digital es basa en la criptografia asimètrica (parell de claus pú
 
 - **Enviament**: S'envia el document original juntament amb la signatura digital generada.
 
-```mermaid
-flowchart TD
-    doc[Document Original] --> hashFunc[Funció Hash<br>ex: SHA-256]
-    hashFunc --> hashVal[Resum / Hash]
-    
-    hashVal --> encrypt[Xifrat Criptogràfic]
-    keyPriv[Clau PRIVADA<br>del signant] --> encrypt
-    
-    encrypt --> sig[SIGNATURA DIGITAL]
-
-    style doc fill:#e1f5fe,stroke:#0288d1
-    style keyPriv fill:#fff3e0,stroke:#f57c00
-    style sig fill:#e8f5e9,stroke:#388e3c
-```
+![signatura](./media/signatura.svg)
 
 ### Com es verifica la signatura?
 
@@ -49,30 +36,7 @@ flowchart TD
 
 - **Comparació**: Si tots dos resums coincideixen, el document és autèntic i no ha estat modificat.
 
-``` mermaid
-flowchart TD
-    subgraph Dades [Dades rebudes]
-        docRec[Document Original]
-        sigRec[Signatura Digital]
-    end
-
-    docRec --> hashFuncRec[Funció Hash]
-    hashFuncRec --> newHash[Hash Nou Calculat]
-
-    sigRec --> decrypt[Desxifrat Criptogràfic]
-    keyPub[Clau PÚBLICA<br>del signant] --> decrypt
-    decrypt --> decHash[Hash Desxifrat]
-
-    newHash --> compare{Coincideixen?}
-    decHash --> compare
-
-    compare -- SÍ --> valid[SIGNATURA VÀLIDA<br>Integritat OK<br>Autenticitat OK]
-    compare -- NO --> invalid[SIGNATURA INVÀLIDA<br>Document alterat<br>o <br> Clau incorrecta]
-
-    style valid fill:#d4edda,stroke:#28a745,color:#155724
-    style invalid fill:#f8d7da,stroke:#dc3545,color:#721c24
-    style keyPub fill:#e0f7fa,stroke:#0097a7
-```
+[verificació](./media/verificacio.svg)
 
 ### Objectius de seguretat coberts per la signatura digital
 
@@ -120,25 +84,7 @@ Una TTP (Trusted Third Party) és una entitat independent i neutral, reconeguda 
 
 Quan ens ensenyen un DNI, confiem en la identitat d'aquella persona no perquè la coneguem, sinó perquè confiem en l'organisme oficial (el Govern/Policia) que ha emès aquest document. La TTP actua com aquest organisme oficial. Valida la identitat del sol·licitant i "segella" aquesta informació creant un certificat digital.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor A as Usuari A (Emissor)
-    participant TTP as Tercera Part de Confiança (TTP)
-    actor B as Usuari B (Receptor)
-
-    Note over A,B: A i B no confien l'un en l'altre, però sí en la TTP.
-
-    A->>TTP: Sol·licitud de certificat
-    TTP-->>A: Valida i emet el certificat (claus pública i privada)
-
-    A->>B: Envia clau pública emesa per la TTP
-    
-    B->>TTP: Comprova la validesa del certificat d'A
-    TTP-->>B: Confirma que l'Usuari A és qui diu ser
-
-    Note over A,B: S'estableix la confiança entra A i B.
-```
+![trusted third party](./media/ttp.svg)
 
 ### Autoritats de certificació (CA)
 
@@ -158,17 +104,7 @@ Les entitats de certificació segueixen un model jeràrquic:
 
 - **CA Intermèdia (Intermediate CA)**: Per motius de seguretat, la CA Arrel no s'usa per al dia a dia. Es deleguen les tasques d'emissió a CAs intermèdies.
 
-```mermaid
-flowchart TD
-    A["<b>CA Arrel (Root CA)</b><br><i>Molt protegida"]
-    B["<b>CA Intermèdia</b><br><i>Emet els certificats finals</i>"]
-    C["<b>Certificat de domini o servidor</b>"]
-    D["<b>Certificat d'usuari</b><br><i>"]
-
-    A --> B
-    B --> C
-    B --> D
-```
+![ca](./media/ca.svg)
 
 ### Infraestructura de clau pública (PKI)
 
@@ -236,9 +172,9 @@ A la següent taula es poden veure les diferències entre els tres tipus de sign
 
 | Tipus de Signatura | Nivell de Validesa i Seguretat | Aspectes que Garanteix | Exemples Pràctics |
 | :--- | :--- | :--- | :--- |
-| **Simple** | **Baix**<br>Té valor jurídic molt limitat. És molt fàcil d'impugnar en un judici, ja que requereix aportar moltes altres proves per demostrar qui la va fer. | - Només demostra la **voluntat o consentiment bàsic**.<br> - **No garanteix** la identitat real de la persona.<br> - **No garanteix** la integritat del document (es pot modificar fàcilment sense deixar rastre). | - Marcar la casella "Accepto les condicions d'ús" en un web.<br>-  Enganxar una imatge (PNG/JPG) de la teva signatura manuscrita en un document Word.<br>- Escriure el teu nom al final d'un correu electrònic. |
-| **Avançada** | **Mitjà - Alt**<br>Elevada validesa jurídica i gran valor provatori. Si algú la nega en un judici, les evidències tècniques (logs, IP, SMS) serveixen com a prova sòlida. | - **Identificació única** del signant.<br>-  **Control exclusiu** (es fa amb dades que només té el signant).<br> - **Integritat de les dades** (si el document es modifica un cop signat, la signatura s'invalida). | -  Signar un contracte de lloguer o de feina des del mòbil mitjançant plataformes com *Signaturit* o *DocuSign* (rebent un codi SMS de confirmació).<br>-  Signar un PDF utilitzant un certificat digital en format fitxer (`.p12` o `.pfx`) instal·lat al navegador de l'ordinador. |
-| **Qualificada** *(o Reconeguda)* | **Màxim**<br>Equivalència legal **directa i automàtica** a la signatura manuscrita en paper. Té la presumpció legal de ser vàlida (en un judici, qui hagi de dubtar-ne és qui ha de demostrar que és falsa). | -  Tots els requisits de la **Signatura Avançada**. <br>-  Basada en un **Certificat Qualificat** emès per una Autoritat de Certificació (CA) oficial.<br>-  Creada mitjançant un **dispositiu segur** de creació de signatures (QSCD).<br>-  Garantia absoluta de **vinculació (no repudi)**. | -  Fer un tràmit oficial amb la Hisenda o la Seguretat Social utilitzant el **DNI electrònic (DNIe)** inserit en un lector de targetes intel·ligents.<br>-  Utilitzar un **token USB o targeta criptogràfica** d'una entitat de certificació reconeguda (ex: idCAT en targeta, FNMT) o també un sistema de signatura centralitzada, per exemple, el de la [FNMT](https://www.sede.fnmt.gob.es/certificados/administracion-publica/certificado-de-firma-centralizada). |
+| **Simple** | **Baix** Té valor jurídic molt limitat. És molt fàcil d'impugnar en un judici, ja que requereix aportar moltes altres proves per demostrar qui la va fer. | Només demostra la **voluntat o consentiment bàsic**, però **no garanteix la identitat real** de la persona, ni **la integritat** del document (es pot modificar fàcilment sense deixar rastre). | Marcar la casella "Accepto les condicions d'ús" en un web, enganxar una imatge (PNG/JPG) de la teva signatura manuscrita en un document Word o escriure el teu nom al final d'un correu electrònic. |
+| **Avançada** | **Mitjà - Alt** Elevada validesa jurídica i gran valor provatori. Si algú la nega en un judici, les evidències tècniques (logs, IP, SMS) serveixen com a prova sòlida. | **Identificació única** del signant i garanteix **integritat de les dades** (si el document es modifica un cop signat, la signatura s'invalida). | Signar un contracte de lloguer o de feina des del mòbil mitjançant plataformes com *Signaturit* o *DocuSign* (rebent un codi SMS de confirmació) o signar un PDF utilitzant un certificat digital en format fitxer (`.p12` o `.pfx`) instal·lat al navegador de l'ordinador. |
+| **Qualificada** *(o Reconeguda)* | **Màxim** Equivalència legal **directa i automàtica** a la signatura manuscrita en paper. Té la presumpció legal de ser vàlida (en un judici, qui hagi de dubtar-ne és qui ha de demostrar que és falsa). | Té tots els requisits de la **Signatura Avançada**, es basa en un **Certificat Qualificat** emès per una Autoritat de Certificació (CA) oficial. Cal que sigui creada mitjançant un **dispositiu segur** de creació de signatures (QSCD) i ofereix garantia absoluta de **vinculació (no repudi)**. | Fer un tràmit oficial amb la Hisenda o la Seguretat Social utilitzant el **DNI electrònic (DNIe)** inserit en un lector de targetes intel·ligents, utilitzar un **token USB o targeta criptogràfica** d'una entitat de certificació reconeguda (ex: idCAT en targeta, FNMT) o també un sistema de signatura centralitzada, per exemple, el de la [FNMT](https://www.sede.fnmt.gob.es/certificados/administracion-publica/certificado-de-firma-centralizada). |
 
 ## Enllaços d'interès
 
