@@ -46,217 +46,32 @@ S’han dissenyat diversos nivells de RAID però a gran trets els actuals que s�
 
 Anomenat Data Striping perquè distribueix la informació entre dos o més discos sense redundància. Augment rendiment perquè escrivim en els dos discos a l’hora.
 
-```mermaid
----
-title: RAID 0
----
-flowchart TB
-
-    subgraph Disk0 ["disc 1"]
-        direction LR
-        A1["A2"]
-        A3["A4"]
-        A5["A6"]
-        A7["A8"]
-    end
-
-    subgraph Disk1 ["disc 0"]
-        direction LR
-        A2["A1"]
-        A4["A3"]
-        A6["A5"]
-        A8["A7"]
-    end
-
-    %% Estils
-    classDef block fill:#FFD54F,stroke:#FFB300,stroke-width:2px,color:#000,font-weight:bold,font-size:18px;
-    class A1,A2,A3,A4,A5,A6,A7,A8 block;
-
-    style Disk0 fill:#F5F5F5,stroke:#9E9E9E,stroke-width:2px;
-    style Disk1 fill:#F5F5F5,stroke:#9E9E9E,stroke-width:2px;
-```
+![RAID 0](./media/raid0.svg)
 
 ### RAID 1
 
 És un sistema en **mirall** (mirror) que duplica la informació entre dos discos. Replicació completa, però perdem capacitat a la meitat. Si un disc falla, l’altre conté la informació. La velocitat de lectura és ràpida i en escriptura és equivalent a la d’un sol disc, però més lent que RAID 0.
 
-```mermaid
----
-title: RAID 1
----
-flowchart TB
-    
-    subgraph Disk0 ["disc 1"]
-        direction LR
-        A1["A1"]
-        A3["A2"]
-        A5["A3"]
-        A7["A4"]
-    end
-
-    subgraph Disk1 ["disc 0"]
-        direction LR
-        A2["A1"]
-        A4["A2"]
-        A6["A3"]
-        A8["A4"]
-    end
-
-    %% Estils
-    classDef block fill:#FFD54F,stroke:#FFB300,stroke-width:2px,color:#000,font-weight:bold,font-size:18px;
-    class A1,A2,A3,A4,A5,A6,A7,A8 block;
-
-    style Disk0 fill:#F5F5F5,stroke:#9E9E9E,stroke-width:2px;
-    style Disk1 fill:#F5F5F5,stroke:#9E9E9E,stroke-width:2px;
-```
+![RAID 1](./media/raid1.svg)
 
 ### RAID 5
 
 Utilitza divisió de dades a nivell de bloc distribuint  la paritat entre tots els discos (mínim tres discos).
 Implementació molt popular per oferir una redundància més econòmica i ràpida que RAID 1, es perd l'equivalent a un disc de capacitat, però requereix més discos i és més lent tant en escriptura com en lectura. Suporta la pèrdua d'un disc.
 
-```mermaid
----
-title: RAID 5
----
-flowchart TD
-    
-    subgraph Disk2 ["disc 2"]
-        direction LR
-        A1["P"]
-        A2["A4"]
-        A3["A6"]
-        A4["P"]
-    end
-
-    subgraph Disk1 ["disc 1"]
-        direction LR
-        A5["A2"]
-        A6["A3"]
-        A7["P"]
-        A8["A8"]
-    end
-
-  subgraph Disk0 ["disc 0"]
-        direction LR
-        A9["A1"]
-        A10["P"]
-        A11["A5"]
-        A12["A7"]
-    end
-
-%% Estils
-    classDef block fill:#FFD54F,stroke:#FFB300,stroke-width:2px,color:#000,font-weight:bold,font-size:18px;
-    class A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12 block;
-
-    style Disk0 fill:#F5F5F5,stroke:#9E9E9E,stroke-width:2px;
-    style Disk1 fill:#F5F5F5,stroke:#9E9E9E,stroke-width:2px;
-    style Disk2 fill:#F5F5F5,stroke:#9E9E9E,stroke-width:2px;
-```
+![RAID 5](./media/raid5.svg)
 
 ### RAID 6
 
 Similar al RAID 5 però utilitza una segona banda de paritat, d'aquesta manera suporta la pèrdua de dos discs.Calen un mínim de quatre unitats.
 
-```mermaid
----
-title: RAID 6
----  
-flowchart TD
-  
-    subgraph Disk0 ["disc 3"]
-        direction LR
-        A1["P2"]
-        A2["A4"]
-        A3["A6"]
-        A4["P1"]
-    end
-
-    subgraph Disk1 ["disc 2"]
-        direction LR
-        A5["P1"]
-        A6["P1"]
-        A7["A5"]
-        A8["A8"]
-    end
-
-    subgraph Disk2 ["disc 1"]
-        direction LR
-        A9["A2"]
-        A10["P1"]
-        A11["P2"]
-        A12["A7"]
-    end
-
-    subgraph Disk3 ["disc 0"]
-        direction LR
-        A13["A1"]
-        A14["A3"]
-        A15["P1"]
-        A16["P2"]
-    end
-
-    %% Estils
-    classDef block fill:#FFD54F,stroke:#FFB300,stroke-width:2px,color:#000,font-weight:bold,font-size:18px;
-    class A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16 block;
-
-    style Disk0 fill:#F5F5F5,stroke:#9E9E9E,stroke-width:2px;
-    style Disk1 fill:#F5F5F5,stroke:#9E9E9E,stroke-width:2px;
-    style Disk2 fill:#F5F5F5,stroke:#9E9E9E,stroke-width:2px;
-    style Disk3 fill:#F5F5F5,stroke:#9E9E9E,stroke-width:2px;
-```
+![RAID 6](./media/raid6.svg)
 
 ### RAID aniuats (RAID 10)
 
 Consisteix a combinar dos nivells de RAID, normalment RAID 1 i RAID 0. Es necessita un mínim de quatre unitats. La informació es distribueix entre dos conjunts de discs en mirall (RAID 1) i després es distribueix entre els conjunts (RAID 0). És una solució molt ràpida i segura, però cal tenir en compte que només es pot perdre un disc per cada conjunt de mirall.
 
-```mermaid
----
-title: RAID 10
---- 
-flowchart TD
-   
-    subgraph Disk0 ["disc 3"]
-        direction LR
-        A1["A2"]
-        A2["A4"]
-        A3["A6"]
-        A4["A8"]
-    end
-
-    subgraph Disk1 ["disc 2"]
-        direction LR
-        A5["A1"]
-        A6["A3"]
-        A7["A5"]
-        A8["A7"]
-    end
-
-    subgraph Disk2 ["disc 1"]
-        direction LR
-        A9["A2"]
-        A10["A4"]
-        A11["A6"]
-        A12["A8"]
-    end
-
-    subgraph Disk3 ["disc 0"]
-        direction LR
-        A13["A1"]
-        A14["A3"]
-        A15["A5"]
-        A16["A7"]
-    end
-
-    %% Estils
-    classDef block fill:#FFD54F,stroke:#FFB300,stroke-width:2px,color:#000,font-weight:bold,font-size:18px;
-    class A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16 block;
-
-    style Disk0 fill:#F5F5F5,stroke:#9E9E9E,stroke-width:2px;
-    style Disk1 fill:#F5F5F5,stroke:#9E9E9E,stroke-width:2px;
-    style Disk2 fill:#F5F5F5,stroke:#9E9E9E,stroke-width:2px;
-    style Disk3 fill:#F5F5F5,stroke:#9E9E9E,stroke-width:2px;
-```
+![RAID 10](./media/raid10.svg)
 
 Altres combinacions de RAID són possibles, però no són habituals. Per exemple, RAID 50 (RAID 5 + RAID 0) o RAID 60 (RAID 6 + RAID 0).
 
