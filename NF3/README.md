@@ -4,8 +4,8 @@
 
 - [1. Introducció](#1-introducció)
 - [2. Resultats d'aprenentatge i criteris d'avaluació](#2-resultats-daprenentatge-i-criteris-davaluació)
-- [3. AA1. Malware](./AA1-Malware.md)
-- [4. AA2. Vulnerabilitats](./AA2-Vulnerabilitats.md)
+- [3. AA1. Malware](./AA1-malware.md)
+- [4. AA2. Vulnerabilitats](./AA2-vulnerabilitats.md)
 - [5. AA3. Criptografia](./AA3-Criptografia.md)
 - [6. AA4. Recuperació de dades](./AA4-RecuperacioDades.md)
 
