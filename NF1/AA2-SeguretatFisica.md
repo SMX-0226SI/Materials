@@ -7,15 +7,17 @@
 Les amenaces que poden afectar l’entorn físic són:
 
 - Fallada dels serveis de subministrament:
-- Tall de comunicacions
+  - Tall de comunicacions
   - Talls elèctrics
-  - Pujades de tensió
+  - Sobretensions, pics de tensió, baixades de tensió, etc.
 - Catàstrofes:
   - Inundacions
   - Incendis
-- Intrusions:
+- Intrusions i danys:
   - Robatoris
   - Accessos no autoritzats
+  - Vandalisme i sabotatge
+  - Danys físics accidentals (caigudes, cops, etc.)
 
 ## La sala de servidors (CPD)
 
@@ -35,7 +37,7 @@ La sala que allotjarà el CPD ha de complir una sèrie de requisits:
 
 ### Condicions ambientals
 
-Cal protegir els equips i persones de:
+Cal protegir els equips:
 
 - **Temperatura**: Els equips dissipen molta calor. Necessiten ventilació i una temperatura controlada.
 - **Humitat**: Aigua i humitat ambiental alta poden provocar corrosió, i baixa electricitat estàtica. Potser necessari usar deshumidificadors.
@@ -50,6 +52,16 @@ Ens instal·lacions grans per afavorir la circulació d’aire s’utilitza la t
 ![Passadís fred i passadís calent](./media/passadis_fred_calent.png)
 
 L'objectiu és que l’aire fred que surt dels equips de climatització arribi a la part frontal dels servidors i que l’aire calent que expulsen els servidors sigui evacuat per la part posterior. D’aquesta manera s’evita que l’aire calent es barregi amb l’aire fred i es manté una temperatura adequada.
+
+El sistemes de ventilació a més han de mantenir un ambient lliure de pols i partícules que puguin afectar el funcionament dels equips. Per això, s’instal·len filtres d’aire que permeten mantenir l’aire net.
+
+A més, és  habitual requerir sistemes de refrigeració líquida per a grans centres de dades, ja que permeten una millor eficiència energètica i un millor control de la temperatura. Tradicionalment, els sistemes de refrigeració líquida utilitzen aigua com a fluid refrigerant, però també s’estan explorant altres fluids com el glicol o l’oli dielèctric o tècniques com la immersió en líquid, que permeten una millor eficiència energètica i un millor control de la temperatura.
+
+![Exemple d'equips amb refrigeració per immersió en líquid. Font: PIC.UAB](https://www.pic.es/media/#jp-carousel-1296)
+
+> Equips amb refrigeració per immersió en líquid. Font: [PIC.UAB](https://www.pic.es)
+
+Un tema pol·lèmic sobretot ara amb el creixement de la intel·ligència artificial és el consum d'aigua dels centres de dades, tot i que moltes xifres que circulen per Internet són exagerades tal com es comenta en aquest [article](https://www.xataka.com/robotica-e-ia/centros-datos-consumen-muchisima-agua-seguramente-que-creiamos-culpa-libro).
 
 ### Detecció i extinció d’incendis
 
