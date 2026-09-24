@@ -57,7 +57,7 @@ El sistemes de ventilació a més han de mantenir un ambient lliure de pols i pa
 
 A més, és  habitual requerir sistemes de refrigeració líquida per a grans centres de dades, ja que permeten una millor eficiència energètica i un millor control de la temperatura. Tradicionalment, els sistemes de refrigeració líquida utilitzen aigua com a fluid refrigerant, però també s’estan explorant altres fluids com el glicol o l’oli dielèctric o tècniques com la immersió en líquid, que permeten una millor eficiència energètica i un millor control de la temperatura.
 
-![Exemple d'equips amb refrigeració per immersió en líquid. Font: PIC.UAB](https://www.pic.es/media/#jp-carousel-1296)
+![Exemple d'equips amb refrigeració per immersió en líquid. Font: PIC.UAB](https://www.pic.es/wp-content/uploads/2023/05/image8-1024x768.jpeg)
 
 > Equips amb refrigeració per immersió en líquid. Font: [PIC.UAB](https://www.pic.es)
 
