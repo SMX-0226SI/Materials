@@ -130,20 +130,7 @@ A grans trets, el SAI consta de:
 - Unes bateries que emmagatzemen l’energia elèctrica.
 - Un convertidor DC/AC que transforma el corrent continu de les bateries en corrent altern per alimentar els equips connectats al SAI.
 
-```mermaid
-graph LR
-    A[Entrada AC / Xarxa Elèctrica] --> B[Conversor AC/DC <br/> Rectificador]
-    B --> C[(Bateries)]
-    B --> D[Conversor DC/AC <br/> Inversor]
-    C --> D
-    D --> E[Sortida AC / Carga Crítica]
-
-    style B fill:#d4f1f9,stroke:#333,stroke-width:2px
-    style C fill:#ffeaa7,stroke:#333,stroke-width:2px
-    style D fill:#d4f1f9,stroke:#333,stroke-width:2px
-    style A fill:#fff,stroke:#333,stroke-dasharray: 5 5
-    style E fill:#fff,stroke:#333,stroke-width:2px
-```
+![Esquema de funcionament d’un SAI](./media/esquema_SAI.svg)
 
 ### Tipus de SAI
 
@@ -151,90 +138,15 @@ En funció de la tecnologia que utilitzen, els SAI es classifiquen en tres tipus
 
 - **Offline**: el SAI només s’activa quan hi ha una fallada de subministrament elèctric. És el més econòmic i el més utilitzat en entorns domèstics i petites empreses. Davant una caiguda commuta (temps de transferència típic sobre 6 ms). Sol incorporar un filtre per protegir contra sobretensions, però que no protegeix contra fluctuacions (pujades i baixades de tensió) de la xarxa.
 
-```mermaid
-graph LR
-    %% Definició de nodes
-    Red["Entrada"]
-    Filtro["Filtre"]
-    Cargador["AC/DC"]
-    Bateria[("Bateria")]
-    Inversor["DC/AC"]
-    Conmutador{"Conmutador"}
-    Carga["Sortida"]
-    
-
-    %% Enllaços del flux
-    Red --> Filtro
-    Red --> Cargador
-    Filtro --> Conmutador
-    
-    Cargador --> Bateria
-    Bateria --> Inversor
-    Inversor -->|Mode bateria: 2-10 ms| Conmutador
-    Conmutador --> Carga
-
-    %% Estils visuals
-    style Red fill:#f9f,stroke:#333,stroke-width:2px
-    style Carga fill:#bbf,stroke:#333,stroke-width:2px
-    style Conmutador fill:#ff9,stroke:#333,stroke-width:2px
-    style Bateria fill:#fff,stroke:#333,stroke-width:2px
-```
+![Esquema de funcionament d’un SAI offline](./media/SAI_offline.svg)
 
 - **Line-interactive**: Usa un regulador de tensió automàtic (AVR)per controlar pujades i baixades de tensió. Davant una caiguda commuta (temps de transferència típic sobre 2 ms). És una mica més car que l'anterior, però actualment és el més utilitzat en entorns professionals.
 
-```mermaid
-graph LR
-    %% Definició de nodes
-    Red["Entrada"]
-    Filtro["AVR"]
-    Cargador["AC/DC"]
-    Bateria[("Bateria")]
-    Inversor["DC/AC"]
-    Conmutador{"Conmutador"}
-    Carga["Sortida"]
-    
-
-    %% Enllaços del flux
-    Red --> Filtro
-    Red --> Cargador
-    Filtro --> Conmutador
-    
-    Cargador --> Bateria
-    Bateria --> Inversor
-    Inversor -->|Mode bateria: 2-6 ms| Conmutador
-    Conmutador --> Carga
-
-    %% Estils visuals
-    style Red fill:#f9f,stroke:#333,stroke-width:2px
-    style Carga fill:#bbf,stroke:#333,stroke-width:2px
-    style Conmutador fill:#ff9,stroke:#333,stroke-width:2px
-    style Bateria fill:#fff,stroke:#333,stroke-width:2px
-```
+![Esquema de funcionament d’un SAI line-interactive](./media/SAI_inline.svg)
 
 - **Online** (doble conversió)*: Sempre s’alimenta a partir de l'inversor DC/AC, senyal regenerat, per tant, no hi ha temps de transferència.Protecció contra tot tipus de problema de la línia.Ús en servidors, equipament crític o centres de dades, etc., perquè són els models més cars.
 
-```mermaid
-graph LR
-    %% Definició de nodes
-    Red["Entrada"]
-    Cargador["AC/DC"]
-    Bateria[("Bateria")]
-    Inversor["DC/AC"]
-    Carga["Sortida"]
-    
-
-    %% Enllaços del flux
-    Red --> Cargador  
-    Cargador --> Inversor
-    Cargador --> Bateria
-    Bateria --> Inversor
-    Inversor -->|Mode bateria: 0 ms| Carga
-
-    %% Estils visuals
-    style Red fill:#f9f,stroke:#333,stroke-width:2px
-    style Carga fill:#bbf,stroke:#333,stroke-width:2px
-    style Bateria fill:#fff,stroke:#333,stroke-width:2px
-```
+![Esquema de funcionament d’un SAI online](./media/SAI_online.svg)
 
 ### Potència elèctrica (Watts i VA) i el factor de potència
 
