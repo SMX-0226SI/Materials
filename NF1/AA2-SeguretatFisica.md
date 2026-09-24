@@ -71,23 +71,23 @@ Els sistemes informàtics es poden danyar segons el sistema d’extinció d’in
 
 Sistemes d'extinció d’incendis:
 
-- Aigua nebulitzada: es tracta d’un sistema que allibera una boira d’aigua que redueix la temperatura i l’oxigen de l’aire. És un sistema segur per a les persones i els equips.
+- **Aigua nebulitzada**: es tracta d’un sistema que allibera una boira d’aigua que redueix la temperatura i l’oxigen de l’aire. És un sistema segur per a les persones i els equips.
 
-- Gasos inerts: es tracta d’un sistema que allibera gasos com el CO2 (ja no molt popular) o l'[Inergen](https://es.wikipedia.org/wiki/INERGEN). Són un sistema segur per als equips però no per a les persones, ja que poden morir per asfíxia.
+- **Gasos inerts**: es tracta d’un sistema que allibera gasos com el CO2 (ja no molt popular) o l'[Inergen](https://es.wikipedia.org/wiki/INERGEN). Són un sistema segur per als equips però no per a les persones, ja que poden morir per asfíxia.
 
-- Sistemes com ([Novec 1230](http://es.novecsystems.com)) líquids que permeten l'extinció i en no ser conductors no afecten els equips. És un sistema segur per a les persones i els equips.
+- **Sistemes de líquids**: Sistemes com ([Novec 1230](http://es.novecsystems.com)) líquids que permeten l'extinció i no són conductors i no danyen els equips. És un sistema segur per a les persones i els equips.
 
 En instal·lacions petites, no tindrem un sistema d’extinció d’incendis automàtic, però sí que haurem de disposar d’extintors i senyalització adequada.
 
 Els més recomanats:
 
-- Aigua polvoritzada: segur i net.
+- Aigua polvoritzada: segur i net. Específic per a equips informàtics.
 - Extitors CO2: no deixa residus.
 - Halotron: gas inert i que no deixa residus.
 
 En cap cas es bona idea usar extintors de pols, ja que deixen residus que poden danyar els equips.
 
-> A Espanya la normativa (UNE-EN 2) classifica els incendis en 5 tipus: A (sòlids), B (líquids), C (gasos), D (metalls) i F (olis de cocció). A la norma europea no s'especifica una classe específica per a incendis elèctrics (a la norma nordamericana sí, tipus C), els extintors indiquen fins a quina tensió és segur usar-los i a quina distància. Per exemple, 35000 V a més d'1 metre de distància.
+> A Espanya la normativa (UNE-EN 2) classifica els incendis en 5 tipus: A (sòlids), B (líquids), C (gasos), D (metalls) i F (olis de cocció). A la norma europea no s'especifica una classe específica per a incendis elèctrics (a la norma nordamericana sí, tipus C), els extintors indiquen fins a quina tensió és segur usar-los i a quina distància. Per exemple, 1000 V a més d'1 metre de distància.
 
 ### Control d'accessos
 
