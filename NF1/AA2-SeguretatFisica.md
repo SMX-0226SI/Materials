@@ -221,3 +221,5 @@ Usant l'eina de selecció de SAI d'APC, obtenim que el model més adequat és un
 - [Google Cloud Tech. Youtube: Google Data Center 360° Tour](https://youtu.be/zDAYZU4A3w0?si=fuPjhGc6WTDO8ZOK)
 
 - [NASEROS. YouTube: Todo lo que debes saber para elegir el mejor SAI](https://youtu.be/rp492vPid2E?si=wOY5vZMDjAoTUaim)
+
+- [Endata. Que es el factor de potencia de un SAI y por que importa](https://www.endata.es/que-es-el-factor-de-potencia-de-un-sai-y-por-que-importa/)
