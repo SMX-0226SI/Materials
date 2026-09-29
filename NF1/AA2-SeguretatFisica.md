@@ -144,7 +144,7 @@ En funció de la tecnologia que utilitzen, els SAI es classifiquen en tres tipus
 
 ![Esquema de funcionament d’un SAI line-interactive](./media/SAI_inline.svg)
 
-- **Online** (doble conversió)*: Sempre s’alimenta a partir de l'inversor DC/AC, senyal regenerat, per tant, no hi ha temps de transferència.Protecció contra tot tipus de problema de la línia.Ús en servidors, equipament crític o centres de dades, etc., perquè són els models més cars.
+- **Online** (doble conversió): Sempre s’alimenta a partir de l'inversor DC/AC, senyal regenerat, per tant, no hi ha temps de transferència.Protecció contra tot tipus de problema de la línia.Ús en servidors, equipament crític o centres de dades, etc., perquè són els models més cars.
 
 ![Esquema de funcionament d’un SAI online](./media/SAI_online.svg)
 
