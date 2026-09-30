@@ -192,7 +192,7 @@ $$ T (minuts) = \left( \frac{\text{Capacitat bateries (Ah)} \cdot \text {Voltatg
 
 Els diferents fabricants solen oferir calculadores de dimensionament del SAI, que permeten introduir les potències dels equips i obtenir el model de SAI més adequat:
 
-- [APC UPS Selector](https://www.apc.com/shop/es/es/tools/ups_selector/)
+- [APC UPS Selector](https://www.se.com/es/es/work/products/tools/ups-selector/)
 - [Salicru Recommender](https://www.salicru.com/recomendador-sais.html)
 - [Eaton UPS Selector](https://powerquality.eaton.com/UPS/selector/SolutionOverview.asp?cx=97)
 - [Riello UPS Product Selector](https://www.riello-ups.es/product-selector)
