@@ -204,7 +204,11 @@ Altres aspectes a considerar a l’hora de triar un SAI són:
 - Factor de forma: el SAI pot ser de sobretaula, torre o en format rack. En entorns professionals és habitual que siguin en format rack, tot i que les bateries solen ser externes i en format torre.
 - Preu
 
-Anem a fer un exemple de dimensionament d’un SAI per una oficina amb 15 ordinadors i monitors i un rack amb el servidor, switch, sistema backup etc.
+Anem a fer un exemple de dimensionament d’un SAI com exemple.
+
+Enunciat d'exemple:
+
+Es requereix un SAI per una oficina amb 15 ordinadors (torres +monitors) i un rack amb el servidor, switch, sistema backup, router etc.
 
 - Consultant els consums típics dels equips, obtenim una potència total de 5862 W.
 - Considerant un factor de potència mitjà de 0,9, obtenim una potència aparent de 6513 VA. $$\text {Potència aparent (VA)} = \frac{\text {Potència activa (W)}}{\text {Factor de potència}} = \frac{5862 W}{0,9} = 6513 VA $$
