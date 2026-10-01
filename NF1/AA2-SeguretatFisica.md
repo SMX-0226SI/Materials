@@ -233,6 +233,8 @@ Com realment estem usant el 65% de la seva potència màxima, ens proporcionarà
 
 - [Google Cloud Tech. Youtube: Google Data Center 360° Tour](https://youtu.be/zDAYZU4A3w0?si=fuPjhGc6WTDO8ZOK)
 
+- [Salicru. Calidad de suministro en una red eléctrica](https://www.salicru.com/calidad-de-red/calidad-de-red.html)
+
 - [NASEROS. YouTube: Todo lo que debes saber para elegir el mejor SAI](https://youtu.be/rp492vPid2E?si=wOY5vZMDjAoTUaim)
 
 - [Endata. Que es el factor de potencia de un SAI y por que importa](https://www.endata.es/que-es-el-factor-de-potencia-de-un-sai-y-por-que-importa/)
