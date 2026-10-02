@@ -204,13 +204,26 @@ Altres aspectes a considerar a l’hora de triar un SAI són:
 - Factor de forma: el SAI pot ser de sobretaula, torre o en format rack. En entorns professionals és habitual que siguin en format rack, tot i que les bateries solen ser externes i en format torre.
 - Preu
 
-Anem a fer un exemple de dimensionament d’un SAI per una oficina amb 15 ordinadors i monitors i un rack amb el servidor, switch, sistema backup etc.
+Anem a fer un exemple de dimensionament d’un SAI com exemple.
+
+Enunciat d'exemple:
+
+Es requereix un SAI per una oficina amb 15 ordinadors (torres +monitors) i un rack amb el servidor, switch, sistema backup, router etc.
 
 - Consultant els consums típics dels equips, obtenim una potència total de 5862 W.
-- Considerant un factor de potència mitjà de 0,9, obtenim una potència aparent de 6513 VA.
-- Aplicant el marge de seuretat del 80%, obtenim una potència de 8142 VA.
+- Considerant un factor de potència mitjà de 0,9, obtenim una potència aparent de 6513 VA. $$\text {Potència aparent (VA)} = \frac{\text {Potència activa (W)}}{\text {Factor de potència}} = \frac{5862 W}{0,9} = 6513 VA $$
+- Aplicant el marge de seuretat del 80%, obtenim una potència de 8142 VA. $$ \text {Potència amb marge de seguretat (VA)} = \frac{\text {Potència aparent (VA)}}{0,8} = \frac{6513 VA}{0,8} = 8142 VA $$
 
-Usant l'eina de selecció de SAI d'APC, obtenim que el model més adequat és un SAI SMART-UPS-SRT de 10 kVA. Amb aquest model realment estem usant el 65% de la seva potència màxima, i ens proporcionarà una autonomia d'uns 20 minuts aproximadament.
+Usant l'eina de selecció de SAI d'APC, obtenim que el model més adequat és un [SAI SMART-UPS-SRT de 10 kVA](https://www.se.com/es/es/product/SRT10KXLI/smartups-srt-de-apc-10-000-va-230-v/). Si mirem les característiques més destacades:
+
+- Tipus: Online (doble conversió).
+- Potència nominal: 10 kVA / 10 kW.
+- Ona de sortida: sinusoidal pura.
+- Format: Torre.Dimensions: 432 x 263 x 715 mm (Al x Am x F).
+- Pes: 111,82 kg.
+- Preu: 20.743,31 €
+
+Com realment estem usant el 65% de la seva potència màxima, ens proporcionarà una autonomia d'uns 20 minuts aproximadament.
 
 ## Enllaços d'interès
 
@@ -219,6 +232,8 @@ Usant l'eina de selecció de SAI d'APC, obtenim que el model més adequat és un
 - [LaSalleURL. El estándar TIA 942 y los Tier](https://blogs.salleurl.edu/es/el-estandar-tia-942-y-los-tier)
 
 - [Google Cloud Tech. Youtube: Google Data Center 360° Tour](https://youtu.be/zDAYZU4A3w0?si=fuPjhGc6WTDO8ZOK)
+
+- [Salicru. Calidad de suministro en una red eléctrica](https://www.salicru.com/calidad-de-red/calidad-de-red.html)
 
 - [NASEROS. YouTube: Todo lo que debes saber para elegir el mejor SAI](https://youtu.be/rp492vPid2E?si=wOY5vZMDjAoTUaim)
 
