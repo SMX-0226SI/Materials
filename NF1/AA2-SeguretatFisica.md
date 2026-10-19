@@ -53,6 +53,12 @@ Ens instal·lacions grans per afavorir la circulació d’aire s’utilitza la t
 
 L'objectiu és que l’aire fred que surt dels equips de climatització arribi a la part frontal dels servidors i que l’aire calent que expulsen els servidors sigui evacuat per la part posterior. D’aquesta manera s’evita que l’aire calent es barregi amb l’aire fred i es manté una temperatura adequada.
 
+A la següent animació es pot veure la diferència entre usar aquesta aliniació i la convencional.
+
+<p align="center">
+<img src="./media/passadis_fred_calent.gif" alt="Passadís fred i passadís calent" width="320"/>
+</p>
+
 El sistemes de ventilació a més han de mantenir un ambient lliure de pols i partícules que puguin afectar el funcionament dels equips. Per això, s’instal·len filtres d’aire que permeten mantenir l’aire net.
 
 A més, és  habitual requerir sistemes de refrigeració líquida per a grans centres de dades, ja que permeten una millor eficiència energètica i un millor control de la temperatura. Tradicionalment, els sistemes de refrigeració líquida utilitzen aigua com a fluid refrigerant, però també s’estan explorant altres fluids com el glicol o l’oli dielèctric o tècniques com la immersió en líquid, que permeten una millor eficiència energètica i un millor control de la temperatura.
