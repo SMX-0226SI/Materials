@@ -90,6 +90,10 @@ A la següent taula teniu una comparativa dels nivells de RAID més habituals:
 
 [Font: www.raid-calculator.com](https://www.raid-calculator.com/raid-types-reference.aspx)
 
+![Comparativa RAID](./media/RAID.gif)
+
+> Comparativa principals tipus de RAID. Font: [@dailydebian a Instagram](https://www.instagram.com/reel/DdtTpMwCkEd/?stkn=MmU0eTB6bjNkMTRr)
+
 ## Sistemes d'emmagatzematge en xarxa
 
 A un entorn empresarial les dades no haurien d’estar a les estacions de treball. Les dades centralitzades permeten evitar la inconsistència de les dades (quan un mateix arxiu o document està en diversos equips, però contenen versions diferents). A més, permeten fer còpies de seguretat de forma centralitzada i amb més facilitat.

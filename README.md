@@ -16,7 +16,9 @@ En aquest repositori es troben els materials teòrics (apunts) corresponents als
 
 ## Llicència
 
-Aquest repositori està subjecte a la llicència [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+Aquest repositori està subjecte a la llicència
+
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 Això significa que pots:
 
