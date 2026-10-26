@@ -31,7 +31,9 @@ Sistema que combina diversos discos o unitats SSD de forma distribuïda. En func
 - Tolerància a fallades: si un disc falla, la informació no es perd.
 - Millora del rendiment: la informació es distribueix entre diversos discs, de manera que es poden llegir/escriure dades de forma paral·lela.
 
-Els RAID es poden implementar amb hardware controladores i hardware específics que suporten les agrupacions de discos. És una solució que ofereix més rapidesa i, a més, aquest tipus de solucions suporten hot swap (intercanvi de disc sense aturar). Els sistemes operatius moderns també permeten implementar RAID amb software, però ofereixen un rendiment inferior i només permeten implentar les versions més bàsiques de RAID.
+Els RAID es poden implementar amb hardware controladores i hardware específics que suporten les agrupacions de discos. És una solució que ofereix més rapidesa i, a més, aquest tipus de solucions suporten hot swap (intercanvi de disc sense aturar). Els sistemes operatius moderns també permeten implementar RAID amb software, però, en general, ofereixen un rendiment inferior i només permeten implentar les versions més bàsiques de RAID.
+
+> :bulb: El sistema de fitxers ZFS (Zettabyte File System) és un sistema de fitxers orientat a treballar amb grans quantitats de dades i amb alt rendiment. Funciona amb Linux, BSD i macOS. Implementa un sistema de RAID per software anomenat RAID-Z. Podeu trobar més informació als enllaços d'interès.
 
 ### Nivells de RAID
 
@@ -93,6 +95,8 @@ A la següent taula teniu una comparativa dels nivells de RAID més habituals:
 ![Comparativa RAID](./media/RAID.gif)
 
 > Comparativa principals tipus de RAID. Font: [@dailydebian a Instagram](https://www.instagram.com/reel/DdtTpMwCkEd/?stkn=MmU0eTB6bjNkMTRr)
+
+En [RAID Calculator](https://itsfoss.com/tools/raid-calculator/) teniu una excel·lente eina per calular la capacitat i rendiment de diferents nivells de RAID.
 
 ## Sistemes d'emmagatzematge en xarxa
 
@@ -166,6 +170,12 @@ Utilitzar com sistema d’alta disponibilitat un servei al cloud. Pagament per �
 
 - [NASEROS. Youtube: Tipos de RAID. En qué se diferencian y cuales son los mejores](https://youtu.be/x8MXkvgeD0w?si=PxmhBAzU1JfD0yvy)
 
--[Pau Tomé. Youtube: RAID en Windows Server](https://youtu.be/3XO-GrcyxHg?si=gzZ1YTr-ovlSkkI4)
+- [Pau Tomé. Youtube: RAID en Windows Server](https://youtu.be/3XO-GrcyxHg?si=gzZ1YTr-ovlSkkI4)
+
+- [It's FOSS. RAID Calculator](https://itsfoss.com/tools/raid-calculator/)
+
+- [ZFS. Zettabyte File System](https://zfsonlinux.org/)
+
+- Easy DataHost. [*ZFS: El Sistema de Archivos que Protege tus Datos*. Blog, juny 2026](https://easydatahost.com/blog/zfs-sistema-archivos-protege-datos)
 
 - [IBM. What is a storage area network (SAN)?](https://www.ibm.com/think/topics/storage-area-network)
