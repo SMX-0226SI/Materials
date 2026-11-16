@@ -31,9 +31,9 @@ Sistema que combina diversos discos o unitats SSD de forma distribuïda. En func
 - Tolerància a fallades: si un disc falla, la informació no es perd.
 - Millora del rendiment: la informació es distribueix entre diversos discs, de manera que es poden llegir/escriure dades de forma paral·lela.
 
-Els RAID es poden implementar amb hardware controladores i hardware específics que suporten les agrupacions de discos. És una solució que ofereix més rapidesa i, a més, aquest tipus de solucions suporten hot swap (intercanvi de disc sense aturar). Els sistemes operatius moderns també permeten implementar RAID amb software, però, en general, ofereixen un rendiment inferior i només permeten implentar les versions més bàsiques de RAID.
+Els RAID es poden implementar amb hardware específics que suporti les agrupacions de discos. És una solució que ofereix més rapidesa i, a més, aquest tipus de solucions suporten hot swap (intercanvi de disc sense aturar). Els sistemes operatius moderns també permeten implementar RAID amb software, però, en general, ofereixen un rendiment inferior i només permeten implentar les versions més bàsiques de RAID.
 
-> :bulb: El sistema de fitxers ZFS (Zettabyte File System) és un sistema de fitxers orientat a treballar amb grans quantitats de dades i amb alt rendiment. Funciona amb Linux, BSD i macOS. Implementa un sistema de RAID per software anomenat RAID-Z. Podeu trobar més informació als enllaços d'interès.
+> El sistema de fitxers ZFS (Zettabyte File System) és un sistema de fitxers orientat a treballar amb grans quantitats de dades i amb alt rendiment. Funciona amb Linux, BSD i macOS. Implementa un sistema de RAID per software anomenat RAID-Z. Podeu trobar més informació als enllaços d'interès.
 
 ### Nivells de RAID
 
@@ -91,6 +91,8 @@ A la següent taula teniu una comparativa dels nivells de RAID més habituals:
 | Cost | Baix | Alt | Alt | Molt Alt | Alt |
 
 [Font: www.raid-calculator.com](https://www.raid-calculator.com/raid-types-reference.aspx)
+
+A la següent animació podeu veure el comportament dels diferents nivells de RAID en cas de fallada d’un disc.
 
 ![Comparativa RAID](./media/RAID.gif)
 
