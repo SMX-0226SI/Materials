@@ -65,7 +65,7 @@ Implementació molt popular per oferir una redundància més econòmica i ràpid
 
 ### RAID 6
 
-Similar al RAID 5 però utilitza una segona banda de paritat, d'aquesta manera suporta la pèrdua de dos discs.Calen un mínim de quatre unitats.
+Similar al RAID 5 però utilitza una **segona banda de paritat**, d'aquesta manera suporta la pèrdua de dos discs. Calen un mínim de quatre unitats.
 
 ![RAID 6](./media/raid6.svg)
 
@@ -74,6 +74,8 @@ Similar al RAID 5 però utilitza una segona banda de paritat, d'aquesta manera s
 Consisteix a combinar dos nivells de RAID, normalment RAID 1 i RAID 0. Es necessita un mínim de quatre unitats. La informació es distribueix entre dos conjunts de discs en mirall (RAID 1) i després es distribueix entre els conjunts (RAID 0). És una solució molt ràpida i segura, però cal tenir en compte que només es pot perdre un disc per cada conjunt de mirall.
 
 ![RAID 10](./media/raid10.svg)
+
+Una combinació similar és el RAID 01 que consisteix a fer un mirall de un RAID 0, no s'usa gairebé mai perquè només permet la fallada d'un disc del conjunt.
 
 Altres combinacions de RAID són possibles, però no són habituals. Per exemple, RAID 50 (RAID 5 + RAID 0) o RAID 60 (RAID 6 + RAID 0).
 
