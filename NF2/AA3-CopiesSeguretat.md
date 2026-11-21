@@ -248,7 +248,7 @@ Els suports físics on es guarden les còpies de seguretat tenen una vida útil 
 
 I què fem amb els suports descartats? No podem llençar-los a les escombraries, ja que poden contenir informació sensible. Cal **destruir-los de manera segura**, amb els mecanismes i mètodes que vam veure a la unitat [AA1-Protegint les dades](./AA1-ProtegintDades.md). Per exemple, triturar els discs durs o les cintes, desmagnetitzar-los o utilitzar serveis especialitzats de destrucció de dades.
 
-![Destrucció segura](./media/destruccio_segur.png)
+![Destrucció segura](./media/destruccio_segur.gif)
 
 ### Programes de còpia de seguretat
 
