@@ -20,7 +20,7 @@ Hi ha tres conceptes que cal diferenciar a l'hora de parlar de fer còpies de se
 
 - **Archiving**: emmagatzematge de dades per períodes de temps grans (anys), habitualment per qüestions legals o de funcionament de l’empresa. Aquestes emmagatzematge no permet una recuperació ràpida però garanteix la conservació a llarg termini.
 
--**Imatges del sistema**: còpia del sistema operatiu amb les aplicacions instal·lades a un equip. Això permet restaurar el sistema en cas de fallada del disc dur o d’un atac informàtic. Aquestes imatges no se centren a la informació, sinó a la recuperació ràpida del sistema (disaster recovery).
+- **Imatges del sistema**: còpia del sistema operatiu amb les aplicacions instal·lades a un equip. Això permet restaurar el sistema en cas de fallada del disc dur o d’un atac informàtic. Aquestes imatges no se centren a la informació, sinó a la recuperació ràpida del sistema (disaster recovery).
 
 ## Còpies de seguretat (backup)
 
